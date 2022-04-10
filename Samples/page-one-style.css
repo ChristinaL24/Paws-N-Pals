@@ -1,0 +1,44 @@
+/* style codes */
+
+* {
+  font-family: Nunito, sans-serif, serif;
+}
+
+body {
+  background-image: url("../Samples/images/Teddy-BG.png");
+  background-size: cover;
+  background-attachment: fixed;
+}
+
+.header-styles {
+  background-color: #7c9473;
+  color: white;
+  height: 8%;
+}
+
+.fa-paw {
+  font-size: 1.5rem;
+}
+
+.input-style {
+  border-radius: 0.5rem;
+  border-style: solid;
+  border-color: #b0b3af;
+  color: black;
+  outline: none;
+  font-family: "Open Sans", sans-serif, serif;
+  padding-left: 0.8rem;
+}
+
+::placeholder {
+  color: black;
+}
+
+.next-button-style {
+  color: #fff;
+  background-color: #7c9473;
+  font-family: "Open Sans", sans-serif, serif;
+  border-radius: 1rem;
+  border-style: none;
+  margin-top: 20rem;
+}
