@@ -31,10 +31,24 @@
       <div class="row margin-top justify-align">
         <h1 class="green-text">Find Nearby Pals!</h1>
         <form>
+          <label for="search">
+          </label>
           <input type="search"
-                 id="search"
-                 placeholder="Enter City, State, or Zip"
-                 class="input-style">
+                  id="search"
+                  name="search"
+                  placeholder="Enter City, State, or Zip"
+                  class="form-styles">
+          <label for="pets">
+          </label>
+          <select
+                 name="pets"
+                 id="pet"
+                 class="form-styles">
+            <option value="pick">Pick the type of pal</option>
+            <option value="dogs">Dogs</option>
+            <option value="cats">Cats</option>
+            <option value="other">Other Animals</option>
+          </select>
         </form>
       </div>
       <div class="justify-right">

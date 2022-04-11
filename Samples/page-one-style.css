@@ -10,25 +10,27 @@ body {
   background-attachment: fixed;
 }
 
+h1 {
+  color: #6f8b65;
+}
+
 .header-styles {
   background-color: #7c9473;
   color: white;
-  height: 5.5%;
-  line-height: 5.5%;
+  height: 2.8rem;
+  line-height: 0.8rem;
 }
 
 .fa-paw {
   font-size: 1.5rem;
 }
 
-.input-style {
+.form-styles {
   border-radius: 0.5rem;
-  border-style: solid;
-  border-color: #b0b3af;
+  border: 0.15rem solid #b0b3af;
   color: black;
   outline: none;
   font-family: "Open Sans", sans-serif, serif;
-  padding-left: 0.8rem;
 }
 
 ::placeholder {
@@ -41,5 +43,12 @@ body {
   font-family: "Open Sans", sans-serif, serif;
   border-radius: 1rem;
   border-style: none;
-  margin-top: 20rem;
+}
+
+select {
+  background-color: white;
+}
+
+.next-button-style:hover {
+  cursor: pointer;
 }
