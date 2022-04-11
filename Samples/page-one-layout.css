@@ -34,6 +34,10 @@
   padding-bottom: 0.5rem;
 }
 
+.padding-top {
+  padding-top: 0.5rem;
+}
+
 form,
 input {
   width: 100%;

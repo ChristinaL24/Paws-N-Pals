@@ -13,7 +13,8 @@ body {
 .header-styles {
   background-color: #7c9473;
   color: white;
-  height: 8%;
+  height: 5.5%;
+  line-height: 5.5%;
 }
 
 .fa-paw {
