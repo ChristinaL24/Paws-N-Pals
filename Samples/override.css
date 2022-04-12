@@ -1,0 +1,57 @@
+body {
+  background-image: url("../Samples/images/Teddy-BG.png");
+  background-size: cover;
+  background-attachment: fixed;
+}
+
+/* styles css */
+
+* {
+  font-family: Nunito, sans-serif, serif;
+}
+
+.open-sans-text {
+  font-family: "Open Sans", sans-serif, serif;
+}
+
+.navbar.navbar-light.bg-light {
+  background-color: ???;
+}
+
+.container-fluid {
+  background-color: ???;
+}
+
+.green-text {
+  color: #6f8b65;
+}
+
+.outline-none {
+  outline: none;
+}
+
+.btn-primary {
+  background-color: ???;
+}
+
+.green-bg {
+  background-color: #7c9473 !important;
+}
+
+::placeholder {
+  color: black;
+}
+
+/* layout codes */
+
+.search-height {
+  height: 2.2rem;
+}
+
+.button-width {
+  width: 5rem;
+}
+
+.justify-content-right {
+  justify-content: right;
+}
