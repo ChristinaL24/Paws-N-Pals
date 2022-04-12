@@ -38,6 +38,10 @@ body {
   background-color: #7c9473 !important;
 }
 
+.form-styles {
+  border: 2px solid grey;
+}
+
 ::placeholder {
   color: black;
 }
