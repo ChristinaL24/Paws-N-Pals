@@ -6,7 +6,7 @@ const staticMiddleware = require('./static-middleware');
 const app = express();
 
 const petfinder = require('@petfinder/petfinder-js');
-const client = new petfinder.Client({ apiKey: '', secret: '' });
+const client = new petfinder.Client({ apiKey: process.env.PETFINDER_KEY, secret: process.env.PETFINDER_SECRET });
 
 client.animal.search({
   type: 'Dog',
