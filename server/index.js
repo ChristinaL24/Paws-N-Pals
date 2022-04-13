@@ -14,8 +14,6 @@ app.get('/api/pets/:location/:type', (req, res) => {
   const { type } = req.params;
   if (!location || !type) {
     throw new ClientError(400, 'Invalid location or type selection');
-  } else {
-    res.status(200).json({ location, type });
   }
   client.animal.search({
     limit: 1,
@@ -25,9 +23,8 @@ app.get('/api/pets/:location/:type', (req, res) => {
     type: type
   })
     .then(response => {
-      // eslint-disable-next-line no-console
-      console.log(response.data.animals);
-
+      const animal = response.data.animals;
+      res.status(200).json(animal);
     })
     .catch(error => console.error(error));
 });
