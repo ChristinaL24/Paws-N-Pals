@@ -2,25 +2,35 @@ require('dotenv/config');
 const express = require('express');
 const errorMiddleware = require('./error-middleware');
 const staticMiddleware = require('./static-middleware');
+const ClientError = require('./client-error');
 
 const app = express();
 
 const petfinder = require('@petfinder/petfinder-js');
 const client = new petfinder.Client({ apiKey: process.env.PETFINDER_KEY, secret: process.env.PETFINDER_SECRET });
 
-client.animal.search({
-  type: 'Dog',
-  limit: 1,
-  location: '92683',
-  distance: 10
-})
-  .then(function (response) {
-    // eslint-disable-next-line no-console
-    console.log(response.data.animals); // Do something with `response.data.animals`
+app.get('/api/pets/:location/:type', (req, res) => {
+  const { location } = req.params;
+  const { type } = req.params;
+  if (!location || !type) {
+    throw new ClientError(400, 'Invalid location or type selection');
+  } else {
+    res.status(200).json({ location, type });
+  }
+  client.animal.search({
+    limit: 1,
+    distance: 20,
+    sort: 'random',
+    location: location,
+    type: type
   })
-  .catch(err => {
-    console.error(err);
-  });
+    .then(response => {
+      // eslint-disable-next-line no-console
+      console.log(response.data.animals);
+
+    })
+    .catch(error => console.error(error));
+});
 
 app.use(staticMiddleware);
 
