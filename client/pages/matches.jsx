@@ -10,7 +10,11 @@ export default class Matches extends React.Component {
       age: '',
       breed: ''
     };
-    // bind search here
+    this.handleMatches = this.handleMatches.bind(this);
+  }
+
+  componentDidMount() {
+
   }
 
   handleMatches() {

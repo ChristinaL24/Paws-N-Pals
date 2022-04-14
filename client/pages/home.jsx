@@ -54,7 +54,7 @@ export default class Home extends React.Component {
             </select>
             <div className="d-flex flex-wrap justify-content-right">
               <a className="btn btn-primary green-bg border-0 rounded-pill button-width open-sans-text mt-5"
-                  href="#"
+                  href={`matches?location=${this.state.location}&type=${this.state.type}`}
                   role="button">Next</a>
             </div>
         </form>
