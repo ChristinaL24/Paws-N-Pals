@@ -19,3 +19,35 @@ body {
 .home-button {
   height: 2rem;
 }
+
+@media (min-width: 767.98px) {
+  .media-font-size {
+    font-size: 2.5rem;
+  }
+
+  p {
+    font-size: 1.2rem;
+  }
+
+  .vh-75 {
+    height: 80vh;
+  }
+
+  .card-body {
+    line-height: 3rem;
+  }
+}
+
+@media (min-width: 1200px) {
+  .media-font-size {
+    font-size: 2.8rem;
+  }
+
+  p {
+    font-size: 1.5rem;
+  }
+
+  .card-body {
+    line-height: 3.5rem;
+  }
+}

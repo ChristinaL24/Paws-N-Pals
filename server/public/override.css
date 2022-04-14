@@ -13,3 +13,7 @@
 .green-bg {
   background-color: #7c9473 !important;
 }
+
+.img-fluid {
+  height: 100% !important;
+}

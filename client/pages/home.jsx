@@ -22,6 +22,9 @@ export default class Home extends React.Component {
 
   handleSubmit(event) {
     event.preventDefault();
+    // Tim's example: if user clicks submit, the url should look like
+    // localhost:3000/#search-results?location={put location here}&type={put type here}
+    window.location.hash = `matches?location=${this.state.location}&type=${this.state.type}`;
   }
 
   render() {
@@ -53,9 +56,9 @@ export default class Home extends React.Component {
               <option value="cats">Cats</option>
             </select>
             <div className="d-flex flex-wrap justify-content-right">
-              <a className="btn btn-primary green-bg border-0 rounded-pill button-width open-sans-text mt-5"
-                  href={`matches?location=${this.state.location}&type=${this.state.type}`}
-                  role="button">Next</a>
+              <button
+                  className="btn btn-primary green-bg border-0 rounded-pill button-width open-sans-text mt-5"
+                  type="submit">Next</button>
             </div>
         </form>
       </div>
