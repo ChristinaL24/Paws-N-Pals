@@ -1,0 +1,21 @@
+body {
+  background-image: url("../images/Teddy-BG.png");
+  background-size: cover;
+  background-attachment: fixed;
+}
+
+.search-height {
+  height: 2.2rem;
+}
+
+.button-width {
+  width: 5rem;
+}
+
+.justify-content-right {
+  justify-content: right;
+}
+
+.home-button {
+  height: 2rem;
+}
