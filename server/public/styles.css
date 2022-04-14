@@ -2,6 +2,11 @@
   font-family: Nunito, sans-serif, serif;
 }
 
+p,
+span {
+  font-family: "Open Sans", sans-serif, serif;
+}
+
 .open-sans-text {
   font-family: "Open Sans", sans-serif, serif;
 }
@@ -20,4 +25,8 @@
 
 ::placeholder {
   color: black;
+}
+
+.tan-bg {
+  background-color: #f5f3ef;
 }
