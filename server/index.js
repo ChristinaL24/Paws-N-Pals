@@ -23,7 +23,7 @@ app.get('/api/pets/:location/:type', (req, res) => {
     type: type
   })
     .then(response => {
-      const animal = response.data.animals;
+      const animal = response.data.animals[0];
       res.status(200).json(animal);
     })
     .catch(error => console.error(error));

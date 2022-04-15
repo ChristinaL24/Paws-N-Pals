@@ -17,7 +17,11 @@ body {
 }
 
 .home-button {
-  height: 2rem;
+  height: 2.5rem;
+}
+
+.card-margin {
+  margin: 3rem;
 }
 
 @media (min-width: 750px) {
@@ -29,8 +33,8 @@ body {
     font-size: 1.2rem;
   }
 
-  .vh-75 {
-    height: 80vh;
+  .card-margin {
+    margin: 4rem;
   }
 
   .card-body {
@@ -45,6 +49,10 @@ body {
 
   p {
     font-size: 1.5rem;
+  }
+
+  .card-margin {
+    margin: 4rem;
   }
 
   .card-body {

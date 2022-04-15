@@ -1,19 +1,9 @@
-.navbar.navbar-light.bg-light {
-  background-color: ???;
-}
-
-.container-fluid {
-  background-color: ???;
-}
-
-.btn-primary {
-  background-color: ???;
-}
-
 .green-bg {
-  background-color: #7c9473 !important;
+  background-color: #7c9473;
 }
 
 .img-fluid {
-  height: 100% !important;
+  object-fit: fill;
+  height: 100%;
+  width: 100%;
 }

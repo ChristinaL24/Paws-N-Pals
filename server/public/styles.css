@@ -1,13 +1,15 @@
-* {
-  font-family: Nunito, sans-serif, serif;
-}
-
-p,
-span {
+body {
   font-family: "Open Sans", sans-serif, serif;
 }
 
-.open-sans-text {
+h1,
+h2,
+a {
+  font-family: Nunito, sans-serif, serif;
+}
+
+input,
+button {
   font-family: "Open Sans", sans-serif, serif;
 }
 
