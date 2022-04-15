@@ -1,0 +1,9 @@
+.green-bg {
+  background-color: #7c9473;
+}
+
+.img-fluid {
+  object-fit: fill;
+  height: 100%;
+  width: 100%;
+}

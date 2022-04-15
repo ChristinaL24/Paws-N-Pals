@@ -1,0 +1,34 @@
+body {
+  font-family: "Open Sans", sans-serif, serif;
+}
+
+h1,
+h2,
+a {
+  font-family: Nunito, sans-serif, serif;
+}
+
+input,
+button {
+  font-family: "Open Sans", sans-serif, serif;
+}
+
+.green-text {
+  color: #6f8b65;
+}
+
+.outline-none {
+  outline: none;
+}
+
+.form-styles {
+  border: 2px solid grey;
+}
+
+::placeholder {
+  color: black;
+}
+
+.tan-bg {
+  background-color: #f5f3ef;
+}
