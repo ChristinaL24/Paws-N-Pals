@@ -5,6 +5,7 @@ export default class Matches extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
+      id: '',
       photos: '',
       name: '',
       location: '',
@@ -29,6 +30,7 @@ export default class Matches extends React.Component {
       .then(response => response.json())
       .then(animal =>
         this.setState({
+          id: animal[0].id,
           photos: animal[0].primary_photo_cropped.full,
           name: animal[0].name,
           location: animal[0].contact.address.city,
