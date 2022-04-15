@@ -1,0 +1,113 @@
+[
+  {
+    "id": 52782164,
+    "organization_id": "CA619",
+    "url": "https://www.petfinder.com/cat/brave-52782164/ca/huntington-beach/second-chance-pet-adoptions-ca619/?referrer_id=ba3e5cfd-affb-4b89-8af2-17a620d45f17",
+    "type": "Cat",
+    "species": "Cat",
+    "breeds": {
+      "primary": "Tabby",
+      "secondary": null,
+      "mixed": false,
+      "unknown": false
+    },
+    "colors": {
+      "primary": null,
+      "secondary": null,
+      "tertiary": null
+    },
+    "age": "Young",
+    "gender": "Male",
+    "size": "Medium",
+    "coat": "Short",
+    "attributes": {
+      "spayed_neutered": true,
+      "house_trained": true,
+      "declawed": false,
+      "special_needs": false,
+      "shots_current": true
+    },
+    "environment": {
+      "children": true,
+      "dogs": null,
+      "cats": true
+    },
+    "tags": [
+      "Friendly",
+      "Affectionate",
+      "Playful",
+      "Smart",
+      "Curious",
+      "Gentle"
+    ],
+    "name": "Brave",
+    "description": "This is a courtesy post. For more information on adopting Brave, please call 714-328-8538. \n\nBrave is an adorable kitten who...",
+    "organization_animal_id": null,
+    "photos": [
+      {
+        "small": "https://dl5zpyw5k3jeb.cloudfront.net/photos/pets/52782164/4/?bust=1631722237&width=100",
+        "medium": "https://dl5zpyw5k3jeb.cloudfront.net/photos/pets/52782164/4/?bust=1631722237&width=300",
+        "large": "https://dl5zpyw5k3jeb.cloudfront.net/photos/pets/52782164/4/?bust=1631722237&width=600",
+        "full": "https://dl5zpyw5k3jeb.cloudfront.net/photos/pets/52782164/4/?bust=1631722237"
+      },
+      {
+        "small": "https://dl5zpyw5k3jeb.cloudfront.net/photos/pets/52782164/1/?bust=1629994514&width=100",
+        "medium": "https://dl5zpyw5k3jeb.cloudfront.net/photos/pets/52782164/1/?bust=1629994514&width=300",
+        "large": "https://dl5zpyw5k3jeb.cloudfront.net/photos/pets/52782164/1/?bust=1629994514&width=600",
+        "full": "https://dl5zpyw5k3jeb.cloudfront.net/photos/pets/52782164/1/?bust=1629994514"
+      },
+      {
+        "small": "https://dl5zpyw5k3jeb.cloudfront.net/photos/pets/52782164/2/?bust=1629994515&width=100",
+        "medium": "https://dl5zpyw5k3jeb.cloudfront.net/photos/pets/52782164/2/?bust=1629994515&width=300",
+        "large": "https://dl5zpyw5k3jeb.cloudfront.net/photos/pets/52782164/2/?bust=1629994515&width=600",
+        "full": "https://dl5zpyw5k3jeb.cloudfront.net/photos/pets/52782164/2/?bust=1629994515"
+      },
+      {
+        "small": "https://dl5zpyw5k3jeb.cloudfront.net/photos/pets/52782164/3/?bust=1629994516&width=100",
+        "medium": "https://dl5zpyw5k3jeb.cloudfront.net/photos/pets/52782164/3/?bust=1629994516&width=300",
+        "large": "https://dl5zpyw5k3jeb.cloudfront.net/photos/pets/52782164/3/?bust=1629994516&width=600",
+        "full": "https://dl5zpyw5k3jeb.cloudfront.net/photos/pets/52782164/3/?bust=1629994516"
+      },
+      {
+        "small": "https://dl5zpyw5k3jeb.cloudfront.net/photos/pets/52782164/5/?bust=1631722238&width=100",
+        "medium": "https://dl5zpyw5k3jeb.cloudfront.net/photos/pets/52782164/5/?bust=1631722238&width=300",
+        "large": "https://dl5zpyw5k3jeb.cloudfront.net/photos/pets/52782164/5/?bust=1631722238&width=600",
+        "full": "https://dl5zpyw5k3jeb.cloudfront.net/photos/pets/52782164/5/?bust=1631722238"
+      }
+    ],
+    "primary_photo_cropped": {
+      "small": "https://dl5zpyw5k3jeb.cloudfront.net/photos/pets/52782164/4/?bust=1631722237&width=300",
+      "medium": "https://dl5zpyw5k3jeb.cloudfront.net/photos/pets/52782164/4/?bust=1631722237&width=450",
+      "large": "https://dl5zpyw5k3jeb.cloudfront.net/photos/pets/52782164/4/?bust=1631722237&width=600",
+      "full": "https://dl5zpyw5k3jeb.cloudfront.net/photos/pets/52782164/4/?bust=1631722237"
+    },
+    "videos": [],
+    "status": "adoptable",
+    "status_changed_at": "2021-08-26T14:35:05+0000",
+    "published_at": "2021-08-26T14:35:05+0000",
+    "distance": 6.6661,
+    "contact": {
+      "email": "info@secondchancepetadoptions.org",
+      "phone": "714-487-1518",
+      "address": {
+        "address1": null,
+        "address2": null,
+        "city": "Huntington Beach",
+        "state": "CA",
+        "postcode": "92646",
+        "country": "US"
+      }
+    },
+    "_links": {
+      "self": {
+        "href": "/v2/animals/52782164"
+      },
+      "type": {
+        "href": "/v2/types/cat"
+      },
+      "organization": {
+        "href": "/v2/organizations/ca619"
+      }
+    }
+  }
+]
