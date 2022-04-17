@@ -1,4 +1,5 @@
 import React from 'react';
+import refreshPage from '../lib/refresh-page';
 
 export default class Matches extends React.Component {
   constructor(props) {
@@ -43,7 +44,6 @@ export default class Matches extends React.Component {
         console.error('Error', error);
       });
   }
-  // the values we want in our favorites table should be: name, location, age, breed, image, id
 
   handleSave() {
     fetch('/api/favorites', {
@@ -65,6 +65,7 @@ export default class Matches extends React.Component {
       .catch(error => {
         console.error('Error', error);
       });
+    refreshPage();
   }
 
   render() {
