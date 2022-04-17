@@ -46,20 +46,6 @@ app.post('/api/favorites', (req, res, next) => {
   const userId = 1;
   const details = req.body.details;
 
-  /*
-     {
-       petId: 1,
-       userId: 1,
-       details: {
-          name: "Vincent",
-          image: "www.BishopLanding.com",
-          location: "Irvine",
-          age: 28,
-          breed: "Poodle"
-        }
-     }
-  */
-
   const sql = `
     insert into "favorites" ("petId", "userId", "details")
       values ($1, $2, $3)
@@ -73,7 +59,6 @@ app.post('/api/favorites', (req, res, next) => {
       res.status(201).json(animal);
     })
     .catch(error => next(error));
-
 });
 
 app.use(errorMiddleware);
@@ -82,9 +67,3 @@ app.listen(process.env.PORT, () => {
   // eslint-disable-next-line no-console
   console.log(`express server listening on port ${process.env.PORT}`);
 });
-
-/*
-curl -X POST localhost:3000/api/favorites \
--H 'Content-Type: application/json' \
-  -d '{ "petId": 1, "userId": 1, "details": { "name": "Vincent", "image": "www.BishopLanding.com", "location": "Irvine", "age": 28, "breed": "Poodle" }}'
-*/
