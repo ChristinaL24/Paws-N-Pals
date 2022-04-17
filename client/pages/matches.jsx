@@ -14,6 +14,7 @@ export default class Matches extends React.Component {
       size: '',
       isLoading: true
     };
+    this.handleSave = this.handleSave.bind(this);
   }
 
   componentDidMount() {
@@ -42,6 +43,29 @@ export default class Matches extends React.Component {
         console.error('Error', error);
       });
   }
+  // the values we want in our favorites table should be: name, location, age, breed, image, id
+
+  handleSave() {
+    fetch('/api/favorites', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({
+        petId: Number(this.state.id),
+        userId: 1,
+        details: {
+          name: this.state.name,
+          photos: this.state.photos,
+          location: this.state.location,
+          age: this.state.age,
+          breed: this.state.breed
+        }
+      })
+    })
+      .then(response => response.json())
+      .catch(error => {
+        console.error('Error', error);
+      });
+  }
 
   render() {
     const { photos, name, location, age, breed, gender, size } = this.state;
@@ -62,6 +86,11 @@ export default class Matches extends React.Component {
               <p className="card-text text-secondary"><span className="fw-bolder">Breed:</span> {breed}</p>
               <p className="card-text text-secondary"><span className="fw-bolder">Size:</span> {size}</p>
               <p className="card-text text-secondary"><span className="fw-bolder">Gender:</span> {gender}</p>
+            </div>
+            <div className='d-flex flex-wrap justify-content-center'>
+              <button className='tan-bg' onClick={this.handleSave}>
+                <i className="fa-solid fa-heart"></i>
+              </button>
             </div>
           </div>
         </div>

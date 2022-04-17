@@ -14,9 +14,7 @@ CREATE TABLE "public"."favorites" (
   OIDS=FALSE
 );
 
-
-
-CREATE TABLE "public.users" (
+CREATE TABLE "public"."users" (
 	"userId" serial NOT NULL,
 	"username" TEXT NOT NULL UNIQUE,
 	"password" TEXT NOT NULL UNIQUE,
@@ -26,7 +24,4 @@ CREATE TABLE "public.users" (
   OIDS=FALSE
 );
 
-
-
-ALTER TABLE "favorites" ADD CONSTRAINT "favorites_fk0" FOREIGN KEY ("petId") REFERENCES "pets"("petId");
-ALTER TABLE "favorites" ADD CONSTRAINT "favorites_fk1" FOREIGN KEY ("userId") REFERENCES "users"("userId");
+ALTER TABLE "favorites" ADD CONSTRAINT "favorites_fk0" FOREIGN KEY ("userId") REFERENCES "users"("userId");
