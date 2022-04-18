@@ -29,7 +29,6 @@ export default class Home extends React.Component {
 
   render() {
     return (
-
       <div className="d-flex flex-column align-items-center">
         <h1 className="green-text mt-5">Find Nearby Pals!</h1>
         <form onSubmit={this.handleSubmit} className="w-75 mt-3">
@@ -55,6 +54,9 @@ export default class Home extends React.Component {
             <option value="pick">Pick the type of pal</option>
             <option value="Dog">Dogs</option>
             <option value="Cat">Cats</option>
+            <option value="Rabbit">Rabbits</option>
+            <option value="Small-Furry">Small & Furry</option>
+            <option value="Barnyard">Barnyard Animals</option>
           </select>
           <div className="d-flex flex-wrap justify-content-right">
             <button
@@ -63,7 +65,6 @@ export default class Home extends React.Component {
           </div>
         </form>
       </div>
-
     );
   }
 }
