@@ -65,7 +65,7 @@ export default class Matches extends React.Component {
       })
     })
       .then(response => response.json())
-      .then(this.handleSearch())
+      .then(() => this.handleSearch())
       .catch(error => {
         console.error('Error', error);
       });
