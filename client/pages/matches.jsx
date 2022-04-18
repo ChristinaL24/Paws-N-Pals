@@ -18,6 +18,10 @@ export default class Matches extends React.Component {
   }
 
   componentDidMount() {
+    this.handleSearch();
+  }
+
+  handleSearch() {
     const queryString = window.location.hash.split('?');
     const params = new URLSearchParams(queryString[1]);
     const location = params.get('location');
@@ -61,10 +65,10 @@ export default class Matches extends React.Component {
       })
     })
       .then(response => response.json())
+      .then(this.handleSearch())
       .catch(error => {
         console.error('Error', error);
       });
-    window.location.reload();
   }
 
   render() {
