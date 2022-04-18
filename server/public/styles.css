@@ -33,6 +33,11 @@ button {
   background-color: #f5f3ef;
 }
 
+.fa-heart {
+  font-size: 4rem;
+  color: #ee8a8a;
+}
+
 button {
   border: none;
 }

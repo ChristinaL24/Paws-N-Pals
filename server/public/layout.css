@@ -28,11 +28,6 @@ body {
   line-height: 1rem;
 }
 
-.fa-heart {
-  font-size: 4rem;
-  color: #ee8a8a;
-}
-
 @media (min-width: 750px) {
   .media-font-size {
     font-size: 2.5rem;

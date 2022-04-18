@@ -1,5 +1,4 @@
 import React from 'react';
-import refreshPage from '../lib/refresh-page';
 
 export default class Matches extends React.Component {
   constructor(props) {
@@ -65,7 +64,7 @@ export default class Matches extends React.Component {
       .catch(error => {
         console.error('Error', error);
       });
-    refreshPage();
+    window.location.reload();
   }
 
   render() {
