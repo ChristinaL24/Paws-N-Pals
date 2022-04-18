@@ -1,5 +1,5 @@
 body {
-  background-image: url("../images/Teddy-BG.png");
+  background-image: url("../images/Teddy-BG.jpg");
   background-size: cover;
   background-attachment: fixed;
 }
@@ -26,6 +26,10 @@ body {
 
 .card-body {
   line-height: 1rem;
+}
+
+.button-gap {
+  gap: 5.5rem;
 }
 
 @media (min-width: 750px) {

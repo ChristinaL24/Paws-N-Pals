@@ -38,6 +38,11 @@ button {
   color: #ee8a8a;
 }
 
+.fa-circle-xmark {
+  font-size: 4rem;
+  color: #c6e2f2;
+}
+
 button {
   border: none;
 }
