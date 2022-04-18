@@ -15,6 +15,7 @@ export default class Matches extends React.Component {
       isLoading: true
     };
     this.handleSave = this.handleSave.bind(this);
+    this.handleSearch = this.handleSearch.bind(this);
   }
 
   componentDidMount() {
@@ -82,7 +83,7 @@ export default class Matches extends React.Component {
           <div className="col-md-4 tan-bg">
             <img src={photos} className="img-fluid rounded-start" alt="matched pet" />
           </div>
-          <div className="col-md-8 tan-bg">
+          <div className="col-md-8 tan-bg pb-2">
             <div className="card-body p-4">
               <h2 className="card-title green-text mb-4 media-font-size">Meet: {name}</h2>
               <p className="card-text text-secondary"><span className="fw-bolder">Location:</span> {location}</p>
@@ -91,7 +92,10 @@ export default class Matches extends React.Component {
               <p className="card-text text-secondary"><span className="fw-bolder">Size:</span> {size}</p>
               <p className="card-text text-secondary"><span className="fw-bolder">Gender:</span> {gender}</p>
             </div>
-            <div className='d-flex flex-wrap justify-content-center'>
+            <div className='d-flex flex-wrap justify-content-center button-gap'>
+              <button className='tan-bg' onClick={this.handleSearch}>
+                <i className='fa-solid fa-circle-xmark'></i>
+              </button>
               <button className='tan-bg' onClick={this.handleSave}>
                 <i className="fa-solid fa-heart"></i>
               </button>

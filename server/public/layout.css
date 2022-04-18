@@ -1,5 +1,5 @@
 body {
-  background-image: url("../images/Teddy-BG.png");
+  background-image: url("../images/Teddy-BG.jpg");
   background-size: cover;
   background-attachment: fixed;
 }
@@ -28,6 +28,10 @@ body {
   line-height: 1rem;
 }
 
+.button-gap {
+  gap: 5.5rem;
+}
+
 @media (min-width: 750px) {
   .media-font-size {
     font-size: 2.5rem;
@@ -43,6 +47,15 @@ body {
 
   .card-body {
     line-height: 1.5rem;
+  }
+
+  .button-gap {
+    gap: 6.5rem;
+  }
+
+  .fa-solid.fa-heart,
+  .fa-solid.fa-circle-xmark {
+    font-size: 4rem !important;
   }
 }
 
@@ -60,6 +73,15 @@ body {
   }
 
   .card-body {
-    line-height: 2rem;
+    line-height: 2.5rem;
+  }
+
+  .button-gap {
+    gap: 10rem;
+  }
+
+  .fa-solid.fa-heart,
+  .fa-solid.fa-circle-xmark {
+    font-size: 5rem !important;
   }
 }
