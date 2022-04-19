@@ -50,3 +50,7 @@ button {
 button::selection {
   cursor: pointer;
 }
+
+a:hover {
+  background-color: #cfdac8;
+}

@@ -29,7 +29,7 @@ body {
 }
 
 .button-gap {
-  gap: 5.5rem;
+  gap: 3rem;
 }
 
 @media (min-width: 750px) {
@@ -48,6 +48,10 @@ body {
   .card-body {
     line-height: 1.5rem;
   }
+
+  .button-gap {
+    gap: 6.5rem;
+  }
 }
 
 @media (min-width: 1200px) {
@@ -65,5 +69,14 @@ body {
 
   .card-body {
     line-height: 2rem;
+  }
+
+  .button-gap {
+    gap: 8rem;
+  }
+
+  .fa-solid.fa-heart,
+  .fa-solid.fa-circle-xmark {
+    font-size: 4.5rem !important;
   }
 }

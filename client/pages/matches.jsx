@@ -91,7 +91,7 @@ export default class Matches extends React.Component {
               <p className="card-text text-secondary"><span className="fw-bolder">Size:</span> {size}</p>
               <p className="card-text text-secondary"><span className="fw-bolder">Gender:</span> {gender}</p>
             </div>
-            <div className='d-flex flex-wrap justify-content-center button-gap'>
+            <div className='d-flex flex-wrap justify-content-center button-gap pb-3'>
               <button className='tan-bg'>
                 <i className='fa-solid fa-circle-xmark'></i>
               </button>
