@@ -15,6 +15,7 @@ export default class Matches extends React.Component {
       isLoading: true
     };
     this.handleSave = this.handleSave.bind(this);
+    this.handleSearch = this.handleSearch.bind(this);
   }
 
   componentDidMount() {
@@ -74,34 +75,42 @@ export default class Matches extends React.Component {
   render() {
     const { photos, name, location, age, breed, gender, size } = this.state;
 
-    if (this.state.isLoading) return null;
-
-    return (
-      <div className="card card-margin">
-        <div className="row g-0">
-          <div className="col-md-4 tan-bg">
-            <img src={photos} className="img-fluid rounded-start" alt="matched pet" />
+    if (this.state.isLoading === true) {
+      return (
+        <div className="text-center position-absolute top-50 start-50 translate-middle">
+          <div className="spinner-border" role="status">
+            <span className="visually-hidden">Loading...</span>
           </div>
-          <div className="col-md-8 tan-bg">
-            <div className="card-body p-4">
-              <h2 className="card-title green-text mb-4 media-font-size">Meet: {name}</h2>
-              <p className="card-text text-secondary"><span className="fw-bolder">Location:</span> {location}</p>
-              <p className="card-text text-secondary"><span className="fw-bolder">Age:</span> {age}</p>
-              <p className="card-text text-secondary"><span className="fw-bolder">Breed:</span> {breed}</p>
-              <p className="card-text text-secondary"><span className="fw-bolder">Size:</span> {size}</p>
-              <p className="card-text text-secondary"><span className="fw-bolder">Gender:</span> {gender}</p>
+        </div>
+      );
+    } else {
+      return (
+        <div className="card card-margin">
+          <div className="row g-0">
+            <div className="col-md-4 tan-bg">
+              <img src={photos} className="img-fluid rounded-start" alt="matched pet" />
             </div>
-            <div className='d-flex flex-wrap justify-content-center button-gap pb-3'>
-              <button className='tan-bg'>
-                <i className='fa-solid fa-circle-xmark'></i>
-              </button>
-              <button className='tan-bg' onClick={this.handleSave}>
-                <i className="fa-solid fa-heart"></i>
-              </button>
+            <div className="col-md-8 tan-bg">
+              <div className="card-body p-4">
+                <h2 className="card-title green-text mb-4 media-font-size">Meet: {name}</h2>
+                <p className="card-text text-secondary"><span className="fw-bolder">Location:</span> {location}</p>
+                <p className="card-text text-secondary"><span className="fw-bolder">Age:</span> {age}</p>
+                <p className="card-text text-secondary"><span className="fw-bolder">Breed:</span> {breed}</p>
+                <p className="card-text text-secondary"><span className="fw-bolder">Size:</span> {size}</p>
+                <p className="card-text text-secondary"><span className="fw-bolder">Gender:</span> {gender}</p>
+              </div>
+              <div className='d-flex flex-wrap justify-content-center button-gap pb-3'>
+                <button className='tan-bg' onClick={this.handleSearch}>
+                  <i className='fa-solid fa-circle-xmark'></i>
+                </button>
+                <button className='tan-bg' onClick={this.handleSave}>
+                  <i className="fa-solid fa-heart"></i>
+                </button>
+              </div>
             </div>
           </div>
         </div>
-      </div>
-    );
+      );
+    }
   }
 }
