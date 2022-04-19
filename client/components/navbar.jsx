@@ -3,20 +3,20 @@ import React from 'react';
 export default function Navbar(props) {
   return (
       <header className='green-bg d-flex'>
-      <i className="fa-solid fa-bars text-white fs-2 p-2" data-bs-toggle="offcanvas" href="#offcanvasExample" role="button" aria-controls="offcanvasExample"></i>
+      <i className="fa-solid fa-bars text-white fs-2 pt-3 ps-2" data-bs-toggle="offcanvas" href="#offcanvasExample" role="button" aria-controls="offcanvasExample"></i>
         <div className="offcanvas offcanvas-start" tabIndex="-1" id="offcanvasExample" aria-labelledby="offcanvasExampleLabel">
           <div className="offcanvas-header">
             <h1 className="offcanvas-title" id="offcanvasExampleLabel">Paws N Pals</h1>
             <button type="button" className="btn-close text-reset" data-bs-dismiss="offcanvas" aria-label="Close"></button>
           </div>
           <div className="offcanvas-body">
-            <div className="nav-links justify-content-center">
+            <div className="nav-links">
               <a href='#' className='text-black text-decoration-none d-flex p-2'>
-                <i className="fa-solid fa-house-chimney fs-4 pe-4"></i>
+                <i className="fa-solid fa-house-chimney fs-2 pe-4"></i>
                 <h3>Home</h3>
               </a>
               <a href='#' className='text-black text-decoration-none d-flex p-2'>
-                <i className="fa-solid fa-paw fs-3 pe-4"></i>
+                <i className="fa-solid fa-paw fs-2 pe-4"></i>
                 <h3>Matches</h3>
               </a>
             </div>

@@ -33,12 +33,12 @@ button {
   background-color: #f5f3ef;
 }
 
-.fa-heart {
+.fa-solid.fa-heart {
   font-size: 4rem;
   color: #ee8a8a;
 }
 
-.fa-circle-xmark {
+.fa-solid.fa-circle-xmark {
   font-size: 4rem;
   color: #c6e2f2;
 }
