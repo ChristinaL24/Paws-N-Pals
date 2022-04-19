@@ -12,6 +12,7 @@ export default class Matches extends React.Component {
       breed: '',
       gender: '',
       size: '',
+      description: '',
       isLoading: true
     };
     this.handleSave = this.handleSave.bind(this);
@@ -86,7 +87,7 @@ export default class Matches extends React.Component {
     } else {
       return (
         <div className="card card-margin">
-          <div className="row g-0">
+          <div className="row g-0 ">
             <div className="col-md-4 tan-bg">
               <img src={photos} className="img-fluid rounded-start" alt="matched pet" />
             </div>

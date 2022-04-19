@@ -4,6 +4,7 @@ import Navbar from './components/navbar';
 import PageContainer from './components/page-container';
 import parseRoute from './lib/parse-route';
 import Matches from './pages/matches';
+import SavedMatches from './pages/saved-matches';
 
 export default class App extends React.Component {
   constructor(props) {
@@ -27,6 +28,9 @@ export default class App extends React.Component {
     }
     if (route.path === 'matches') {
       return <Matches />;
+    }
+    if (route.path === 'saved-matches') {
+      return <SavedMatches />;
     }
   }
 

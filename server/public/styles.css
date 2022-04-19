@@ -43,6 +43,10 @@ button {
   color: #c6e2f2;
 }
 
+.card {
+  transition: all linear 0.3s;
+}
+
 button {
   border: none;
 }
@@ -51,6 +55,11 @@ button::selection {
   cursor: pointer;
 }
 
+button:hover,
 a:hover {
+  transform: scale(1.1);
+}
+
+.hover:hover {
   background-color: #cfdac8;
 }
