@@ -29,7 +29,7 @@ body {
 }
 
 .button-gap {
-  gap: 5.5rem;
+  gap: 3rem;
 }
 
 @media (min-width: 750px) {
