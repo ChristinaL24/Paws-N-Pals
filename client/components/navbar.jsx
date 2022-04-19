@@ -2,18 +2,31 @@ import React from 'react';
 
 export default function Navbar(props) {
   return (
-      <header>
-        <nav className="d-flex navbar-expand-lg green-bg navbar-light bg-light p-0">
-        <button className='green-bg'>
-          <i className='fa fa-bars fs-3 text-white'></i>
-        </button>
-          <div className="container-fluid green-bg p-1 d-flex justify-content-center">
-            <a className="navbar-brand text-white fs-4">Paws N Pals</a>
-            <a href='#'>
-              <img className='home-button' src='./images/home-icon.svg'/>
-            </a>
+      <header className='green-bg d-flex'>
+      <i className="fa-solid fa-bars text-white fs-2" data-bs-toggle="offcanvas" href="#offcanvasExample" role="button" aria-controls="offcanvasExample"></i>
+        <div className="offcanvas offcanvas-start" tabIndex="-1" id="offcanvasExample" aria-labelledby="offcanvasExampleLabel">
+          <div className="offcanvas-header">
+            <h1 className="offcanvas-title" id="offcanvasExampleLabel">Paws N Pals</h1>
           </div>
-        </nav>
+          <div className="offcanvas-body">
+            <div className="nav-links justify-content-center">
+              <a href='#' className='text-black text-decoration-none d-flex'>
+                <i className="fa-solid fa-house-chimney fs-4 pe-4"></i>
+                <h3>Home</h3>
+              </a>
+              <a href='#' className='text-black text-decoration-none d-flex'>
+                <i className="fa-solid fa-paw fs-4 pe-4"></i>
+                <h3>Matches</h3>
+              </a>
+            </div>
+          </div>
+        </div>
+        <div className="container-fluid green-bg p-1 d-flex justify-content-center">
+          <a className="navbar-brand text-white fs-4">Paws N Pals</a>
+          <a href='#'>
+            <img className='home-button' src='./images/home-icon.svg'/>
+          </a>
+        </div>
       </header>
   );
 }
