@@ -15,6 +15,7 @@ export default class Matches extends React.Component {
       isLoading: true
     };
     this.handleSave = this.handleSave.bind(this);
+    this.handleSearch = this.handleSearch.bind(this);
   }
 
   componentDidMount() {
@@ -34,7 +35,7 @@ export default class Matches extends React.Component {
       .then(animal =>
         this.setState({
           id: animal.id,
-          photos: animal.primary_photo_cropped.full,
+          photos: animal.primary_photo_cropped.medium,
           name: animal.name,
           location: animal.contact.address.city,
           age: animal.age,
@@ -91,7 +92,10 @@ export default class Matches extends React.Component {
               <p className="card-text text-secondary"><span className="fw-bolder">Size:</span> {size}</p>
               <p className="card-text text-secondary"><span className="fw-bolder">Gender:</span> {gender}</p>
             </div>
-            <div className='d-flex flex-wrap justify-content-center'>
+            <div className='d-flex flex-wrap justify-content-center button-gap pb-3'>
+              <button className='tan-bg' onClick={this.handleSearch}>
+                <i className='fa-solid fa-circle-xmark'></i>
+              </button>
               <button className='tan-bg' onClick={this.handleSave}>
                 <i className="fa-solid fa-heart"></i>
               </button>

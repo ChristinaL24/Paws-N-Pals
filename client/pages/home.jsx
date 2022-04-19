@@ -60,7 +60,7 @@ export default class Home extends React.Component {
           </select>
           <div className="d-flex flex-wrap justify-content-right">
             <button
-              className="btn btn-primary green-bg border-0 rounded-pill button-width mt-5"
+              className="btn-primary green-bg border-0 rounded-pill button-width mt-5"
               type="submit">Next</button>
           </div>
         </form>
