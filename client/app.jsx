@@ -34,12 +34,10 @@ export default class App extends React.Component {
       return <SavedMatches />;
     }
     if (route.path === 'view-details') {
-      return <ViewDetails />;
+      const petId = route.params.get('petId');
+      return <ViewDetails petId={petId}/>;
     }
   }
-  // add this after line 33
-  // const petId = route.params.get('petId');
-  // return<ViewDetails petId = { petId } />;
 
   render() {
     return (
