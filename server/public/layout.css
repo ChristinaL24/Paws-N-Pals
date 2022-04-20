@@ -32,6 +32,11 @@ body {
   gap: 3rem;
 }
 
+.spinner-border {
+  width: 5rem;
+  height: 5rem;
+}
+
 @media (min-width: 750px) {
   .media-font-size {
     font-size: 2.5rem;
@@ -72,11 +77,11 @@ body {
   }
 
   .button-gap {
-    gap: 10rem;
+    gap: 8rem;
   }
 
   .fa-solid.fa-heart,
   .fa-solid.fa-circle-xmark {
-    font-size: 4.8rem !important;
+    font-size: 4.5rem !important;
   }
 }

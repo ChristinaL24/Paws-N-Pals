@@ -50,3 +50,12 @@ button {
 button::selection {
   cursor: pointer;
 }
+
+button:hover,
+a:hover {
+  transform: scale(1.1);
+}
+
+.hover:hover {
+  background-color: #cfdac8;
+}
