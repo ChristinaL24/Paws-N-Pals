@@ -32,6 +32,7 @@ body {
   gap: 3rem;
 }
 
+
 .spinner-border {
   width: 5rem;
   height: 5rem;
@@ -47,7 +48,7 @@ body {
   }
 
   .card-margin {
-    margin: 4rem;
+    margin: 6rem;
   }
 
   .card-body {
@@ -73,7 +74,16 @@ body {
   }
 
   .card-body {
-    line-height: 2rem;
+    line-height: 2.5rem;
+  }
+
+  .button-gap {
+    gap: 10rem;
+  }
+
+  .fa-solid.fa-heart,
+  .fa-solid.fa-circle-xmark {
+    font-size: 4.8rem !important;
   }
 
   .button-gap {
