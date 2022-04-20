@@ -23,12 +23,6 @@ export default class Matches extends React.Component {
     this.handleSearch();
   }
 
-  transitionLeft() {
-    // insert a class into the card so that a transition occurs
-    // make class name dependent on state
-    this.setState({ transition: 'transition-left' });
-  }
-
   handleSearch() {
 
     const queryString = window.location.hash.split('?');
