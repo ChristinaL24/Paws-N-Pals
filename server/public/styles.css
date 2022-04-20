@@ -44,7 +44,7 @@ button {
 }
 
 .card {
-  transition: all linear 0.3s;
+  transition: transform 100ms ease-in-out 30ms;
 }
 
 button {

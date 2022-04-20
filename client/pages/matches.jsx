@@ -23,7 +23,14 @@ export default class Matches extends React.Component {
     this.handleSearch();
   }
 
+  transitionLeft() {
+    // insert a class into the card so that a transition occurs
+    // make class name dependent on state
+    this.setState({ transition: 'transition-left' });
+  }
+
   handleSearch() {
+
     const queryString = window.location.hash.split('?');
     const params = new URLSearchParams(queryString[1]);
     const location = params.get('location');
@@ -86,7 +93,7 @@ export default class Matches extends React.Component {
       );
     } else {
       return (
-        <div className="card card-margin">
+        <div className='card card-margin'>
           <div className="row g-0 ">
             <div className="col-md-4 tan-bg">
               <img src={photos} className="img-fluid rounded-start" alt="matched pet" />
