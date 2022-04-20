@@ -11,11 +11,11 @@ export default function Navbar(props) {
           </div>
           <div className="offcanvas-body">
             <div className="nav-links">
-              <a href='#' className='hover text-black text-decoration-none d-flex p-2'>
+              <a href='#' className='tab-hover text-black text-decoration-none d-flex p-2'>
                 <i className="fa-solid fa-house-chimney fs-2 pe-4"></i>
                 <h3>Home</h3>
               </a>
-              <a href='#saved-matches' className='hover text-black text-decoration-none d-flex p-2'>
+              <a href='#saved-matches' className='tab-hover text-black text-decoration-none d-flex p-2'>
                 <i className="fa-solid fa-paw fs-2 pe-4"></i>
                 <h3>Matches</h3>
               </a>

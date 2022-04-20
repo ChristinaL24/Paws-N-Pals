@@ -52,10 +52,11 @@ button::selection {
 }
 
 button:hover,
-a:hover {
+a:hover,
+.card-hover:hover {
   transform: scale(1.1);
 }
 
-.hover:hover {
+.tab-hover:hover {
   background-color: #cfdac8;
 }
