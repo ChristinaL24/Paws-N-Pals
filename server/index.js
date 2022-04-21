@@ -53,7 +53,28 @@ app.get('/api/matches', (req, res, next) => {
 });
 
 // handles getting the pet w/ petId
-app.get('/api/favorites/:petId', (req, res, next) => {
+app.get('/api/matches/:petId', (req, res, next) => {
+  const petId = Number(req.params.petId);
+  if (!petId) {
+    throw new ClientError(400, 'petId must be a positive integer');
+  }
+  const sql = `
+    select "petId",
+           "details"
+      from "favorites"
+      join "users" using ("userId)
+      where "petId" = $1
+  `;
+  const params = [petId];
+  db.query(sql, params)
+    .then(result => {
+      const selectedPal = result.rows[0];
+      if (!selectedPal) {
+        throw new ClientError(404, `Cannot find pal with petId ${petId}`);
+      }
+      res.json(selectedPal);
+    })
+    .catch(err => next(err));
 });
 
 // post request that handles saving pets into favorites table

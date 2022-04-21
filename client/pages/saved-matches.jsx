@@ -6,7 +6,6 @@ export default class SavedMatches extends React.Component {
     this.state = {
       animals: []
     };
-    this.renderSavedMatches = this.renderSavedMatches.bind(this);
   }
 
   componentDidMount() {
@@ -28,7 +27,7 @@ export default class SavedMatches extends React.Component {
         <div className="card text-center m-5">
           <div className="card-body">
             <h5 className="card-title">There are currently no saved pals.</h5>
-            <p className="card-text"> Click the button below to find your new best friend! <i className="fa-solid fa-dog fs-5"></i>
+            <p className="card-text"> Click the button below to find your new best pal! <i className="fa-solid fa-dog fs-5"></i>
             </p>
             <a href="#" className="btn green-bg text-white">Let&apos;s go!</a>
           </div>
@@ -45,9 +44,9 @@ export default class SavedMatches extends React.Component {
                     <img src={animal.details.photos} className="card-img-top" alt="matched pet" />
                     <div className="card-body tan-bg">
                       <h2 className="card-title green-text mb-3">{animal.details.name}</h2>
-                      <p className="card-text text-secondary"><span className="fw-bolder">Location: </span>{animal.details.location}</p>
-                      <p className="card-text text-secondary"><span className="fw-bolder">Age: </span>{animal.details.age}</p>
-                      <p className="card-text text-secondary"><span className="fw-bolder">Breed: </span>{animal.details.breed}</p>
+                      <p className="card-text text-secondary"><span className="fw-bolder">Location:</span> {animal.details.location}</p>
+                      <p className="card-text text-secondary"><span className="fw-bolder">Age:</span> {animal.details.age}</p>
+                      <p className="card-text text-secondary"><span className="fw-bolder">Breed:</span> {animal.details.breed}</p>
                     </div>
                   </div>
                 </div>
