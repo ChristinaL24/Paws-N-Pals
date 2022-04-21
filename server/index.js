@@ -18,6 +18,7 @@ const db = new pg.Pool({
 app.use(staticMiddleware);
 app.use(jsonMiddleware);
 
+// gets the searched/matched pet
 app.get('/api/pets/:location/:type', (req, res, next) => {
   const { location } = req.params;
   const { type } = req.params;
@@ -49,6 +50,10 @@ app.get('/api/matches', (req, res, next) => {
   db.query(sql)
     .then(result => res.json(result.rows))
     .catch(err => next(err));
+});
+
+// handles getting the pet w/ petId
+app.get('/api/favorites/:petId', (req, res, next) => {
 });
 
 // post request that handles saving pets into favorites table

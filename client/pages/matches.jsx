@@ -12,18 +12,18 @@ export default class Matches extends React.Component {
       breed: '',
       gender: '',
       size: '',
-      description: '',
+      transition: '',
       isLoading: true
     };
     this.handleSave = this.handleSave.bind(this);
-    this.handleSearch = this.handleSearch.bind(this);
+    this.handleUnmatch = this.handleUnmatch.bind(this);
   }
 
   componentDidMount() {
-    this.handleSearch();
+    this.handleSearch(false);
   }
 
-  handleSearch() {
+  handleSearch(transition) {
     const queryString = window.location.hash.split('?');
     const params = new URLSearchParams(queryString[1]);
     const location = params.get('location');
@@ -48,9 +48,19 @@ export default class Matches extends React.Component {
       .catch(error => {
         console.error('Error', error);
       });
+    if (transition) {
+      setTimeout(() => this.setState({ transition: 'animate__fadeIn' }), 1500);
+    }
+  }
+
+  handleUnmatch() {
+    this.setState({ transition: 'animate__fadeOutLeft' });
+    this.handleSearch(true);
   }
 
   handleSave() {
+    this.setState({ transition: 'animate__fadeOutRight' });
+
     fetch('/api/favorites', {
       method: 'POST',
       headers: { 'Content-Type': 'application/json' },
@@ -67,7 +77,7 @@ export default class Matches extends React.Component {
       })
     })
       .then(response => response.json())
-      .then(() => this.handleSearch())
+      .then(() => this.handleSearch(true))
       .catch(error => {
         console.error('Error', error);
       });
@@ -86,7 +96,7 @@ export default class Matches extends React.Component {
       );
     } else {
       return (
-        <div className='card card-margin'>
+        <div className={`animate__animated ${this.state.transition} card card-margin`}>
           <div className="row g-0">
             <div className="col-md-4 tan-bg">
               <img src={photos} className="img-fluid rounded-start" alt="matched pet" />
@@ -101,7 +111,7 @@ export default class Matches extends React.Component {
                 <p className="card-text text-secondary"><span className="fw-bolder">Gender:</span> {gender}</p>
               </div>
               <div className='d-flex flex-wrap justify-content-center button-gap pb-3'>
-                <button className='tan-bg' onClick={this.handleSearch}>
+                <button className='tan-bg' onClick={this.handleUnmatch}>
                   <i className='fa-solid fa-circle-xmark'></i>
                 </button>
                 <button className='tan-bg' onClick={this.handleSave}>

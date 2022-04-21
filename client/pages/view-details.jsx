@@ -4,13 +4,13 @@ export default class ViewDetails extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      animals: []
+      animals: null
     };
     this.handleClickDetails = this.handleClickDetails.bind(this);
   }
 
   componentDidMount() {
-    fetch('/api/favorites')
+    fetch(`/api/favorites/${this.props.petId}`)
       .then(res => res.json())
       .then(animals => this.setState({ animals }));
   }
