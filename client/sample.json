@@ -111,3 +111,23 @@
     }
   }
 ]
+
+{
+  "name": "DIESEL",
+  "photos": "https://dl5zpyw5k3jeb.cloudfront.net/photos/pets/52794935/1/?bust=1650415183&width=450",
+  "age": "Adult",
+  "breed": "Pit Bull Terrier",
+  "gender": "Male",
+  "size": "Medium",
+  "email": "petadopt@longbeach.gov",
+  "phone": "(562) 570-7387",
+  "address": {
+    "address1": "7700 E. Spring St.",
+    "address2": null,
+    "city": "Long Beach",
+    "state": "CA",
+    "postcode": "90815",
+    "country": "US"
+  },
+  "url": "https://www.petfinder.com/dog/diesel-52794935/ca/long-beach/long-beach-animal-care-services-ca1183/?referrer_id=ba3e5cfd-affb-4b89-8af2-17a620d45f17"
+}

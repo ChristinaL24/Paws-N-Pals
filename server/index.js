@@ -18,6 +18,7 @@ const db = new pg.Pool({
 app.use(staticMiddleware);
 app.use(jsonMiddleware);
 
+// gets the searched/matched pet
 app.get('/api/pets/:location/:type', (req, res, next) => {
   const { location } = req.params;
   const { type } = req.params;
@@ -48,6 +49,30 @@ app.get('/api/matches', (req, res, next) => {
   `;
   db.query(sql)
     .then(result => res.json(result.rows))
+    .catch(err => next(err));
+});
+
+// handles getting the pet w/ petId
+app.get('/api/details/:petId', (req, res, next) => {
+  const petId = Number(req.params.petId);
+  if (!petId) {
+    throw new ClientError(400, 'petId must be a positive integer');
+  }
+  const sql = `
+    select "petId",
+           "details"
+      from "favorites"
+      where "petId" = $1
+  `;
+  const params = [petId];
+  db.query(sql, params)
+    .then(result => {
+      const selectedPal = result.rows[0];
+      if (!selectedPal) {
+        throw new ClientError(404, `Cannot find pal with petId ${petId}`);
+      }
+      res.json(selectedPal);
+    })
     .catch(err => next(err));
 });
 
