@@ -33,7 +33,7 @@ export default class App extends React.Component {
     if (route.path === 'saved-matches') {
       return <SavedMatches />;
     }
-    if (route.path === 'view-details') {
+    if (route.path === 'details') {
       const petId = route.params.get('petId');
       return <ViewDetails petId={petId}/>;
     }

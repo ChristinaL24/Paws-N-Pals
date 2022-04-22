@@ -53,7 +53,7 @@ app.get('/api/matches', (req, res, next) => {
 });
 
 // handles getting the pet w/ petId
-app.get('/api/matches/:petId', (req, res, next) => {
+app.get('/api/details/:petId', (req, res, next) => {
   const petId = Number(req.params.petId);
   if (!petId) {
     throw new ClientError(400, 'petId must be a positive integer');
@@ -62,7 +62,6 @@ app.get('/api/matches/:petId', (req, res, next) => {
     select "petId",
            "details"
       from "favorites"
-      join "users" using ("userId)
       where "petId" = $1
   `;
   const params = [petId];

@@ -35,11 +35,11 @@ export default class SavedMatches extends React.Component {
       );
     } else {
       return (
-        <a href='#view-details' className='text-decoration-none'>
-          <div className="row row-cols-1 row-cols-md-3 g-4 m-5">
-            {this.state.animals.map(animal => {
-              return (
-                <div key={animal.petId} className='col'>
+        <div className="row row-cols-1 row-cols-md-3 g-4 m-5">
+          {this.state.animals.map(animal => {
+            return (
+              <div key={animal.petId} className='col'>
+                <a href={`#details?petId=${animal.petId}`} className='text-decoration-none'>
                   <div className="card h-100 card-hover">
                     <img src={animal.details.photos} className="card-img-top" alt="matched pet" />
                     <div className="card-body tan-bg">
@@ -49,11 +49,11 @@ export default class SavedMatches extends React.Component {
                       <p className="card-text text-secondary"><span className="fw-bolder">Breed:</span> {animal.details.breed}</p>
                     </div>
                   </div>
-                </div>
-              );
-            })}
-          </div>
-        </a>
+                </a>
+              </div>
+            );
+          })}
+        </div>
       );
     }
   }
