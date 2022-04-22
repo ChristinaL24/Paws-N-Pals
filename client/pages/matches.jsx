@@ -7,11 +7,14 @@ export default class Matches extends React.Component {
       id: '',
       photos: '',
       name: '',
-      location: '',
       age: '',
       breed: '',
       gender: '',
       size: '',
+      email: '',
+      phone: '',
+      address: '',
+      url: '',
       transition: '',
       isLoading: true
     };
@@ -38,11 +41,14 @@ export default class Matches extends React.Component {
           id: animal.id,
           photos: animal.primary_photo_cropped.medium,
           name: animal.name,
-          location: animal.contact.address.city,
           age: animal.age,
           breed: animal.breeds.primary,
           gender: animal.gender,
           size: animal.size,
+          email: animal.contact.email,
+          phone: animal.contact.phone,
+          address: animal.contact.address,
+          url: animal.url,
           isLoading: false
         }))
       .catch(error => {
@@ -70,9 +76,14 @@ export default class Matches extends React.Component {
         details: {
           name: this.state.name,
           photos: this.state.photos,
-          location: this.state.location,
           age: this.state.age,
-          breed: this.state.breed
+          breed: this.state.breed,
+          gender: this.state.gender,
+          size: this.state.size,
+          email: this.state.email,
+          phone: this.state.phone,
+          address: this.state.address,
+          url: this.state.url
         }
       })
     })
@@ -84,7 +95,7 @@ export default class Matches extends React.Component {
   }
 
   render() {
-    const { photos, name, location, age, breed, gender, size } = this.state;
+    const { photos, name, address, age, breed, gender, size } = this.state;
 
     if (this.state.isLoading === true) {
       return (
@@ -104,7 +115,7 @@ export default class Matches extends React.Component {
             <div className="col-md-8 tan-bg">
               <div className="card-body p-4">
                 <h2 className="card-title green-text mb-4 media-font-size">Meet: {name}</h2>
-                <p className="card-text text-secondary"><span className="fw-bolder">Location:</span> {location}</p>
+                <p className="card-text text-secondary"><span className="fw-bolder">Location:</span> {address.city}, {address.state}</p>
                 <p className="card-text text-secondary"><span className="fw-bolder">Age:</span> {age}</p>
                 <p className="card-text text-secondary"><span className="fw-bolder">Breed:</span> {breed}</p>
                 <p className="card-text text-secondary"><span className="fw-bolder">Size:</span> {size}</p>
