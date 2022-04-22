@@ -25,7 +25,7 @@ export default class ViewDetails extends React.Component {
             </div>
             <div className="col-md-8 tan-bg">
               <div className="card-body p-4">
-                <h2 className="card-title green-text mb-4 media-font-size">{details.name}</h2>
+              <h2 className="card-title green-text mb-4 media-font-size d-flex justify-content-center">{details.name}</h2>
                 <p className="card-text text-secondary"><span className="fw-bolder">Location: </span>{details.address.city}, {details.address.state}</p>
                 <p className="card-text text-secondary"><span className="fw-bolder">Age: </span>{details.age}</p>
                 <p className="card-text text-secondary"><span className="fw-bolder">Breed: </span>{details.breed}</p>
@@ -33,7 +33,7 @@ export default class ViewDetails extends React.Component {
                 <p className="card-text text-secondary"><span className="fw-bolder">Size: </span>{details.size} </p>
                 <p className="card-text text-secondary">
                   <span className="fw-bolder">URL: </span>
-                  <a href={details.url}>{details.url}</a>
+                  <a href={details.url} className='text-secondary'>{details.url}</a>
                 </p>
                 <p className="card-text text-secondary">
                   <span className="fw-bolder">Address: </span>
@@ -53,5 +53,4 @@ export default class ViewDetails extends React.Component {
         </div>
     );
   }
-
 }

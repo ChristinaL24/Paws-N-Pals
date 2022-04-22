@@ -43,7 +43,7 @@ export default class SavedMatches extends React.Component {
                   <div className="card h-100 card-hover">
                     <img src={animal.details.photos} className="card-img-top" alt="matched pet" />
                     <div className="card-body tan-bg">
-                      <h2 className="card-title green-text mb-3">{animal.details.name}</h2>
+                      <h2 className="card-title green-text mb-3 d-flex justify-content-center">{animal.details.name}</h2>
                       <p className="card-text text-secondary"><span className="fw-bolder">Location:</span> {animal.details.address.city}, {animal.details.address.state}</p>
                       <p className="card-text text-secondary"><span className="fw-bolder">Age:</span> {animal.details.age}</p>
                       <p className="card-text text-secondary"><span className="fw-bolder">Breed:</span> {animal.details.breed}</p>

@@ -114,7 +114,7 @@ export default class Matches extends React.Component {
             </div>
             <div className="col-md-8 tan-bg">
               <div className="card-body p-4">
-                <h2 className="card-title green-text mb-4 media-font-size">Meet: {name}</h2>
+                <h2 className="card-title green-text mb-4 media-font-size d-flex justify-content-center">Meet: {name}</h2>
                 <p className="card-text text-secondary"><span className="fw-bolder">Location:</span> {address.city}, {address.state}</p>
                 <p className="card-text text-secondary"><span className="fw-bolder">Age:</span> {age}</p>
                 <p className="card-text text-secondary"><span className="fw-bolder">Breed:</span> {breed}</p>
