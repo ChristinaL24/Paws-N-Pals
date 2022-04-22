@@ -27,7 +27,7 @@ app.get('/api/pets/:location/:type', (req, res, next) => {
   }
   client.animal.search({
     limit: 1,
-    distance: 20,
+    distance: 35,
     sort: 'random',
     location: location,
     type: type
@@ -96,6 +96,29 @@ app.post('/api/favorites', (req, res, next) => {
       res.status(201).json(animal);
     })
     .catch(error => next(error));
+});
+
+// request that handles deleting the saved pets from the favorites table
+app.delete('/api/details/:petId', (req, res, next) => {
+  const petId = Number(req.params.petId);
+  if (petId <= 0) {
+    throw new ClientError(400, 'petId must be a positive integer');
+  }
+  const sql = `
+  delete from "favorites"
+    where "petId" = $1
+    returning *
+  `;
+  const params = [petId];
+  db.query(sql, params)
+    .then(result => {
+      const deletePal = result.rows[0];
+      if (!deletePal) {
+        throw new ClientError(404, `Cannot find pal with petId ${petId}`);
+      }
+      res.json(deletePal);
+    })
+    .catch(err => next(err));
 });
 
 app.use(errorMiddleware);

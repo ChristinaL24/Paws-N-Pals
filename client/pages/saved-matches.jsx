@@ -6,6 +6,7 @@ export default class SavedMatches extends React.Component {
     this.state = {
       animals: []
     };
+    this.handleDelete = this.handleDelete.bind(this);
   }
 
   componentDidMount() {
@@ -19,6 +20,10 @@ export default class SavedMatches extends React.Component {
       .catch(error => {
         console.error('Error', error);
       });
+  }
+
+  handleDelete() {
+
   }
 
   render() {
@@ -35,25 +40,31 @@ export default class SavedMatches extends React.Component {
       );
     } else {
       return (
-        <div className="row row-cols-1 row-cols-md-3 g-4 m-5">
-          {this.state.animals.map(animal => {
-            return (
-              <div key={animal.petId} className='col'>
-                <a href={`#details?petId=${animal.petId}`} className='text-decoration-none'>
-                  <div className="card h-100 card-hover">
-                    <img src={animal.details.photos} className="card-img-top" alt="matched pet" />
-                    <div className="card-body tan-bg">
-                      <h2 className="card-title green-text mb-3 d-flex justify-content-center">{animal.details.name}</h2>
-                      <p className="card-text text-secondary"><span className="fw-bolder">Location:</span> {animal.details.address.city}, {animal.details.address.state}</p>
-                      <p className="card-text text-secondary"><span className="fw-bolder">Age:</span> {animal.details.age}</p>
-                      <p className="card-text text-secondary"><span className="fw-bolder">Breed:</span> {animal.details.breed}</p>
+        <>
+          <h1 className="green-text d-flex justify-content-center mt-4">Matched Pals</h1>
+          <div className="row row-cols-1 row-cols-md-3 g-4 ms-5 me-5 mt-1 mb-5">
+            {this.state.animals.map(animal => {
+              return (
+                <div key={animal.petId} className='col'>
+                  <a href={`#details?petId=${animal.petId}`} className='text-decoration-none'>
+                    <div className="card h-100 card-hover">
+                      <button className='bg-transparent position-absolute top-0 start-0' onClick={this.handleDelete}>
+                        <i className="fa-solid fa-heart"></i>
+                      </button>
+                      <img src={animal.details.photos} className="card-img-top" alt="matched pet" />
+                      <div className="card-body tan-bg">
+                        <h2 className="card-title green-text mb-3 d-flex justify-content-center">{animal.details.name}</h2>
+                        <p className="card-text text-secondary"><span className="fw-bolder">Location:</span> {animal.details.address.city}, {animal.details.address.state}</p>
+                        <p className="card-text text-secondary"><span className="fw-bolder">Age:</span> {animal.details.age}</p>
+                        <p className="card-text text-secondary"><span className="fw-bolder">Breed:</span> {animal.details.breed}</p>
+                      </div>
                     </div>
-                  </div>
-                </a>
-              </div>
-            );
-          })}
-        </div>
+                  </a>
+                </div>
+              );
+            })}
+          </div>
+        </>
       );
     }
   }
