@@ -21,16 +21,11 @@ export default class SavedMatches extends React.Component {
       });
   }
 
-  // Ensure that line 33 matches by logging both values against each other
-  // check inspect
-  //  console.log(selectedPetId);
-  //  console.log(this.state.animals[i].petId);
   handleDelete(event) {
     const selectedPetId = Number(event.currentTarget.id);
     let petIndex = null;
     for (let i = 0; i < this.state.animals.length; i++) {
       if (this.state.animals[i].petId === selectedPetId) {
-        // we are checking if the petId property in the animals array is strictly equal to the selected pet id
         petIndex = i;
       }
     }
@@ -67,7 +62,7 @@ export default class SavedMatches extends React.Component {
             {this.state.animals.map(animal => {
               return (
                 <div key={animal.petId} className='col'>
-                  <div className="card h-100 card-hover">
+                  <div className="card h-100 hover">
                     <button className='bg-transparent position-absolute top-0 start-0' id={animal.petId} onClick={this.handleDelete}>
                       <i className="fa-solid fa-heart"></i>
                     </button>
