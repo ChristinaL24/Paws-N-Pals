@@ -92,7 +92,7 @@ app.post('/api/favorites', (req, res, next) => {
   const params = [petId, userId, details];
   return db.query(sql, params)
     .then(result => {
-      const [animal] = result.rows[0];
+      const [animal] = result.rows;
       res.status(201).json(animal);
     })
     .catch(error => next(error));
@@ -115,8 +115,9 @@ app.delete('/api/details/:petId', (req, res, next) => {
       const [deletedPal] = result.rows;
       if (!deletedPal) {
         throw new ClientError(404, `Cannot find pal with the petId ${petId}`);
+      } else {
+        res.sendStatus(204);
       }
-      res.status(204);
     })
     .catch(err => next(err));
 });

@@ -1,5 +1,4 @@
 import React from 'react';
-
 export default class SavedMatches extends React.Component {
   constructor(props) {
     super(props);
@@ -22,26 +21,25 @@ export default class SavedMatches extends React.Component {
       });
   }
 
-  // create prototype method named handleDelete
-  // use the get attribute method to get the id attribute on thats on the h2 react element (refer to your code in accordion)
-  // create a loop and loop through this.state.animals array
-  // check if the selectedPetId matches
-  // utilize slice method
-
+  // Ensure that line 33 matches by logging both values against each other
+  // check inspect
+  //  console.log(selectedPetId);
+  //  console.log(this.state.animals[i].petId);
   handleDelete(event) {
     const selectedPetId = Number(event.currentTarget.id);
     let petIndex = null;
     for (let i = 0; i < this.state.animals.length; i++) {
-      if (this.state.animals[i].selectedPetId === selectedPetId) {
+      if (this.state.animals[i].petId === selectedPetId) {
+        // we are checking if the petId property in the animals array is strictly equal to the selected pet id
         petIndex = i;
       }
     }
     fetch(`/api/details/${selectedPetId}`, {
       method: 'DELETE'
     })
-      .then(result => {
+      .then(() => {
         const deleteAnimal = this.state.animals.slice();
-        deleteAnimal.splice(petIndex, result);
+        deleteAnimal.splice(petIndex, 1);
         this.setState({ animals: deleteAnimal });
       })
       .catch(error => {
