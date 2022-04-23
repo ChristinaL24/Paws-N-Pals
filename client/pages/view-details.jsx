@@ -37,10 +37,10 @@ export default class ViewDetails extends React.Component {
                 </p>
                 <p className="card-text text-secondary">
                   <span className="fw-bolder">Address: </span>
-                  <p>
+                  <span>
                     {details.address.address1} <br/>
                     {details.address.city}, {details.address.state}, {details.address.postcode}
-                  </p>
+                  </span>
                 </p>
                 <p className="card-text text-secondary"><span className="fw-bolder">Email: </span>{details.email}</p>
                 <p className="card-text text-secondary"><span className="fw-bolder">Phone: </span>{details.phone}</p>

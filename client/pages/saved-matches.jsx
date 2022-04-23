@@ -14,7 +14,7 @@ export default class SavedMatches extends React.Component {
   }
 
   renderSavedMatches() {
-    fetch('/api/matches')
+    fetch('/api/saved')
       .then(response => response.json())
       .then(animals => this.setState({ animals }))
       .catch(error => {
@@ -22,8 +22,31 @@ export default class SavedMatches extends React.Component {
       });
   }
 
-  handleDelete() {
+  // create prototype method named handleDelete
+  // use the get attribute method to get the id attribute on thats on the h2 react element (refer to your code in accordion)
+  // create a loop and loop through this.state.animals array
+  // check if the selectedPetId matches
+  // utilize slice method
 
+  handleDelete(event) {
+    const selectedPetId = Number(event.currentTarget.id);
+    let petIndex = null;
+    for (let i = 0; i < this.state.animals.length; i++) {
+      if (this.state.animals[i].selectedPetId === selectedPetId) {
+        petIndex = i;
+      }
+    }
+    fetch(`/api/details/${selectedPetId}`, {
+      method: 'DELETE'
+    })
+      .then(result => {
+        const deleteAnimal = this.state.animals.slice();
+        deleteAnimal.splice(petIndex, result);
+        this.setState({ animals: deleteAnimal });
+      })
+      .catch(error => {
+        console.error('Error', error);
+      });
   }
 
   render() {
@@ -46,20 +69,20 @@ export default class SavedMatches extends React.Component {
             {this.state.animals.map(animal => {
               return (
                 <div key={animal.petId} className='col'>
-                  <a href={`#details?petId=${animal.petId}`} className='text-decoration-none'>
-                    <div className="card h-100 card-hover">
-                      <button className='bg-transparent position-absolute top-0 start-0' onClick={this.handleDelete}>
-                        <i className="fa-solid fa-heart"></i>
-                      </button>
-                      <img src={animal.details.photos} className="card-img-top" alt="matched pet" />
+                  <div className="card h-100 card-hover">
+                    <button className='bg-transparent position-absolute top-0 start-0' id={animal.petId} onClick={this.handleDelete}>
+                      <i className="fa-solid fa-heart"></i>
+                    </button>
+                    <a href={`#details?petId=${animal.petId}`} className='text-decoration-none'>
+                      <img src={animal.details.photos} className="card-img-top" alt={animal.details.name} />
                       <div className="card-body tan-bg">
                         <h2 className="card-title green-text mb-3 d-flex justify-content-center">{animal.details.name}</h2>
                         <p className="card-text text-secondary"><span className="fw-bolder">Location:</span> {animal.details.address.city}, {animal.details.address.state}</p>
                         <p className="card-text text-secondary"><span className="fw-bolder">Age:</span> {animal.details.age}</p>
                         <p className="card-text text-secondary"><span className="fw-bolder">Breed:</span> {animal.details.breed}</p>
                       </div>
-                    </div>
-                  </a>
+                    </a>
+                  </div>
                 </div>
               );
             })}

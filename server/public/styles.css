@@ -52,7 +52,7 @@ button::selection {
 }
 
 i:hover,
-a:hover,
+/* a:hover, */
 .card-hover:hover {
   transform: scale(1.1);
 }
