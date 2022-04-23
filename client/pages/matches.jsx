@@ -32,7 +32,7 @@ export default class Matches extends React.Component {
     const location = params.get('location');
     const type = params.get('type');
 
-    fetch(`/api/pets/${location}/${type}`, {
+    fetch(`/api/matches/${location}/${type}`, {
       method: 'GET'
     })
       .then(response => response.json())
@@ -122,10 +122,10 @@ export default class Matches extends React.Component {
                 <p className="card-text text-secondary"><span className="fw-bolder">Gender:</span> {gender}</p>
               </div>
               <div className='d-flex flex-wrap justify-content-center button-gap pb-3'>
-                <button className='tan-bg' onClick={this.handleUnmatch}>
+                <button className='bg-transparent' onClick={this.handleUnmatch}>
                   <i className='fa-solid fa-circle-xmark'></i>
                 </button>
-                <button className='tan-bg' onClick={this.handleSave}>
+                <button className='bg-transparent' onClick={this.handleSave}>
                   <i className="fa-solid fa-heart"></i>
                 </button>
               </div>

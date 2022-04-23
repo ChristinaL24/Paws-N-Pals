@@ -29,10 +29,6 @@ button {
   color: black;
 }
 
-.tan-bg {
-  background-color: #f5f3ef;
-}
-
 .fa-solid.fa-heart {
   font-size: 4rem;
   color: #ee8a8a;
@@ -56,11 +52,11 @@ button::selection {
 }
 
 i:hover,
-a:hover,
+.hover:hover,
 .card-hover:hover {
   transform: scale(1.1);
 }
 
-.tab-hover:hover {
+.tab-color:hover {
   background-color: #cfdac8;
 }
