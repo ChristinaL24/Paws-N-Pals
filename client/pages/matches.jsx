@@ -39,7 +39,7 @@ export default class Matches extends React.Component {
       .then(animal =>
         this.setState({
           id: animal.id,
-          photos: animal.primary_photo_cropped.medium,
+          photos: animal.primary_photo_cropped.full,
           name: animal.name,
           age: animal.age,
           breed: animal.breeds.primary,
