@@ -25,12 +25,14 @@ export default class ViewDetails extends React.Component {
   }
 
   getCoordinates() {
-    if (!this.state.animal) return null;
     const { details } = this.state.animal;
-    Geocode.fromAddress(`${details.address.postcode}`, process.env.GOOGLEMAPS_KEY)
+    Geocode.fromAddress(`${details.address.address1} ${details.address.city} ${details.address.state}
+                         ${details.address.postcode}`, process.env.GOOGLEMAPS_KEY)
       .then(response => {
-        // const { lat, lng } = response.results[0].geometry.location;
-        // console.log(lat, lng);
+        const { lat, lng } = response.results[0].geometry.location;
+        this.setState({
+          map: { lat: lat, lng: lng }
+        });
       })
       .catch(error => console.error(error));
   }

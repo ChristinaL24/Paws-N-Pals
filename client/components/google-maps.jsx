@@ -16,7 +16,7 @@ export default function GoogleMaps(props) {
         <GoogleMap
           mapContainerStyle={containerStyle}
           center={props.coordinates}
-          zoom={10}
+          zoom={15}
         >
           <>
            <Marker position={props.coordinates} />
