@@ -6,6 +6,7 @@ import parseRoute from './lib/parse-route';
 import Matches from './pages/matches';
 import SavedMatches from './pages/saved-matches';
 import ViewDetails from './pages/view-details';
+import GoogleMaps from './components/google-maps';
 
 export default class App extends React.Component {
   constructor(props) {
@@ -44,7 +45,7 @@ export default class App extends React.Component {
       <>
         <Navbar />
         <PageContainer>
-        { this.displayMatches() }
+          { this.displayMatches() }
         </PageContainer>
       </>
     );
