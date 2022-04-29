@@ -10,7 +10,7 @@ a {
 
 input,
 button {
-  font-family: "Open Sans", sans-serif, serif;
+  font-family: inherit;
 }
 
 .green-text {
