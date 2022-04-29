@@ -49,20 +49,20 @@ Try the application live at [https://paws-n-pals.herokuapp.com/](https://paws-n-
 
 ### Getting Started
 
-1. Clone the repository.
+1. Clone the repository
 
     ```shell
     git clone git@github.com:ChristinaL24/paws-n-pals.git
     cd paws-n-pals
     ```
 
-2. Install all dependencies with NPM.
+2. Install all dependencies with NPM
 
     ```shell
     npm install
     ```
 
-3. Make a copy of the .env.example file.
+3. Make a copy of the .env.example file
 
     ```shell
     cp .env.example .env
@@ -80,7 +80,7 @@ Try the application live at [https://paws-n-pals.herokuapp.com/](https://paws-n-
     createdb pets
     ```
 
-6. Import the example database to postgreSQL.
+6. Import the example database to postgreSQL
 
     ```shell
     npm run db:import
