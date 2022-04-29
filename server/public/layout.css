@@ -37,7 +37,7 @@ body {
   height: 5rem;
 }
 
-@media (min-width: 750px) {
+@media (min-width: 768px) {
   .media-font-size {
     font-size: 2.5rem;
   }
@@ -59,7 +59,7 @@ body {
   }
 }
 
-@media (min-width: 1200px) {
+@media (min-width: 1280px) {
   .media-font-size {
     font-size: 2.8rem;
   }
