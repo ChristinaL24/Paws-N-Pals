@@ -14,7 +14,6 @@ The inspiration behind this application stems from my strong love for all animal
 - Babel
 - Webpack
 - Express.js
-- 
 
 # Live Demo
 
