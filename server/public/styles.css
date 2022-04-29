@@ -45,9 +45,6 @@ button {
 
 button {
   border: none;
-}
-
-button::selection {
   cursor: pointer;
 }
 
