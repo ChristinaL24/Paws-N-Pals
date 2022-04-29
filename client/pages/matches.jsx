@@ -110,7 +110,7 @@ export default class Matches extends React.Component {
         <div className={`animate__animated ${this.state.transition} card card-margin`}>
           <div className="row g-0">
             <div className="col-md-4 tan-bg">
-              <img src={photos} className="img-fluid rounded-start" alt="matched pet" />
+              <img src={photos} className="img-fluid rounded-start" alt={name}/>
             </div>
             <div className="col-md-8 tan-bg">
               <div className="card-body p-4">
