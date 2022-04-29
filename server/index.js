@@ -18,7 +18,6 @@ const db = new pg.Pool({
 app.use(staticMiddleware);
 app.use(jsonMiddleware);
 
-// gets the searched/matched pet
 app.get('/api/matches/:location/:type', (req, res, next) => {
   const { location } = req.params;
   const { type } = req.params;
@@ -39,7 +38,6 @@ app.get('/api/matches/:location/:type', (req, res, next) => {
     .catch(error => console.error(error));
 });
 
-// handles getting all the saved matches
 app.get('/api/saved', (req, res, next) => {
   const sql = `
     select "petId",
@@ -52,7 +50,6 @@ app.get('/api/saved', (req, res, next) => {
     .catch(err => next(err));
 });
 
-// handles getting the pet w/ petId
 app.get('/api/details/:petId', (req, res, next) => {
   const petId = Number(req.params.petId);
   if (!petId) {
@@ -76,7 +73,6 @@ app.get('/api/details/:petId', (req, res, next) => {
     .catch(err => next(err));
 });
 
-// post request that handles saving pets into favorites table
 app.post('/api/favorites', (req, res, next) => {
 
   const petId = req.body.petId;
@@ -98,7 +94,6 @@ app.post('/api/favorites', (req, res, next) => {
     .catch(error => next(error));
 });
 
-// request that handles deleting the saved pets from the favorites table
 app.delete('/api/details/:petId', (req, res, next) => {
   const petId = Number(req.params.petId);
   if (!petId) {
