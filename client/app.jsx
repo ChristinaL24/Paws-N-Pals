@@ -6,6 +6,7 @@ import parseRoute from './lib/parse-route';
 import Matches from './pages/matches';
 import SavedMatches from './pages/saved-matches';
 import ViewDetails from './pages/view-details';
+import AuthForm from './components/auth-form';
 
 export default class App extends React.Component {
   constructor(props) {
@@ -37,6 +38,9 @@ export default class App extends React.Component {
       const petId = route.params.get('petId');
       return <ViewDetails petId={petId}/>;
     }
+    if (route.path === 'sign-up') {
+      return <AuthForm />;
+    }
   }
 
   render() {
@@ -44,7 +48,7 @@ export default class App extends React.Component {
       <>
         <Navbar />
         <PageContainer>
-          { this.displayMatches() }
+          <AuthForm />
         </PageContainer>
       </>
     );
