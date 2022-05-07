@@ -48,7 +48,7 @@ export default class App extends React.Component {
       <>
         <Navbar />
         <PageContainer>
-          <AuthForm />
+          { this.displayMatches() }
         </PageContainer>
       </>
     );

@@ -19,6 +19,10 @@ export default function Navbar(props) {
               <i className='fa-solid fa-paw fs-2 pe-4'></i>
                 <h3>Matches</h3>
               </a>
+            <a href='#sign-up' className='tab-color hover text-black text-decoration-none d-flex p-2'>
+              <i className='fa-solid fa-user-plus fs-2 pe-4'></i>
+              <h3>Sign Up</h3>
+            </a>
             </div>
           </div>
         </div>
