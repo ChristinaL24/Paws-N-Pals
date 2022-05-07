@@ -1,7 +1,7 @@
 import React from 'react';
 import { Form, Card, Button } from 'react-bootstrap';
 
-export default class AuthForm extends React.Component {
+export default class SignUp extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
@@ -13,11 +13,8 @@ export default class AuthForm extends React.Component {
     this.handlePassword = this.handlePassword.bind(this);
   }
 
-  componentDidMount() {
-
-  }
-
   handleSubmit(event) {
+
   }
 
   handleUsername(event) {
@@ -47,6 +44,7 @@ export default class AuthForm extends React.Component {
                   required
                   type="text"
                   name="username"
+                  value={this.state.username}
                   placeholder="Username" />
               </Form.Group>
 
@@ -56,18 +54,18 @@ export default class AuthForm extends React.Component {
                   required
                   type="password"
                   name="password"
+                  value={this.state.password}
                   placeholder="Password" />
               </Form.Group>
 
-              <div className="d-grid ps-5 pe-5 ">
-                <Button
-                  variant="primary"
-                  type='submit'
-                  size="lg"
-                  className='green-bg border-0 rounded-pill'>
-                  Sign Up
-                </Button>
-              </div>
+              <Button
+                variant="primary"
+                type='submit'
+                size="lg"
+                className='green-bg border-0 rounded-pill d-grid ps-5 pe-5 m-auto'>
+                Sign Up
+              </Button>
+
             </Form>
             <div className=''>
               <a href='' className='grey-text'>
