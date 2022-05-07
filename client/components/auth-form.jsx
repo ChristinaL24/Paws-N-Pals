@@ -21,14 +21,14 @@ export default class AuthForm extends React.Component {
   render() {
     return (
       <>
-        <div className=''>
+        <div className='mb-4'>
           <h1 className="green-text mt-5 d-flex justify-content-center">Sign Up</h1>
-          <h5 className='d-flex justify-content-center'>Register for an account</h5>
+          <h5 className='d-flex justify-content-center grey-text'>Register for an account</h5>
         </div>
 
-        <Card className='m-4'>
+        <Card className='m-auto shadow-sm card-width'>
           <Card.Body>
-            <Form>
+            <Form className='p-4'>
               <Form.Group
                   className="mb-3"
                   controlId="formUsername">
@@ -39,19 +39,23 @@ export default class AuthForm extends React.Component {
               </Form.Group>
 
               <Form.Group
-                className="mb-3"
+                className="mb-4"
                 controlId="formPassword">
                 <Form.Control
                   type="password"
                   placeholder="Password" />
               </Form.Group>
-              <Button size="lg" className='green-bg border-0 d-grid mx-auto mb-4'>Sign Up</Button>
+              <div className="d-grid ps-5 pe-5 ">
+                <Button variant="primary" size="lg" className='green-bg border-0 rounded-pill '>
+                  Sign Up
+                </Button>
+              </div>
             </Form>
             <div className=''>
-              <a href='' className='text-black'>
+              <a href='' className='grey-text'>
                 <h5 className='d-flex justify-content-center'>Have an account? Log in!</h5>
               </a>
-              <a href='' className='text-black'>
+              <a href='' className='grey-text'>
                 <h5 className='d-flex justify-content-center'>Sign in as a guest</h5>
              </a>
             </div>
