@@ -49,9 +49,7 @@ export default class SignUp extends React.Component {
 
         <Card className='m-auto shadow-sm card-width'>
           <Card.Body>
-
             <Form className='p-4' onSubmit={this.handleSubmit}>
-
               <Form.Group className="mb-4" controlId="formUsername">
                 <Form.Control
                   onChange={this.handleUsername}
@@ -61,7 +59,6 @@ export default class SignUp extends React.Component {
                   value={this.state.username}
                   placeholder="Username" />
               </Form.Group>
-
               <Form.Group className="mb-4" controlId="formPassword">
                 <Form.Control
                   onChange={this.handlePassword}
@@ -71,7 +68,6 @@ export default class SignUp extends React.Component {
                   value={this.state.password}
                   placeholder="Password" />
               </Form.Group>
-
               <Button
                 variant="primary"
                 type='submit'
@@ -79,7 +75,6 @@ export default class SignUp extends React.Component {
                 className='green-bg border-0 rounded-pill d-grid ps-5 pe-5 m-auto'>
                 Sign Up
               </Button>
-
             </Form>
             <div className=''>
               <a href='' className='grey-text'>
@@ -89,7 +84,6 @@ export default class SignUp extends React.Component {
                 <h5 className='d-flex justify-content-center'>Sign in as a guest</h5>
              </a>
             </div>
-
           </Card.Body>
         </Card>
       </>
