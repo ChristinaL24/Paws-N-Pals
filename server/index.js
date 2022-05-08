@@ -7,6 +7,7 @@ const ClientError = require('./client-error');
 const app = express();
 const petfinder = require('@petfinder/petfinder-js');
 const client = new petfinder.Client({ apiKey: process.env.PETFINDER_KEY, secret: process.env.PETFINDER_SECRET });
+const argon2 = require('argon2');
 const pg = require('pg');
 const db = new pg.Pool({
   connectionString: process.env.DATABASE_URL,
@@ -90,6 +91,31 @@ app.post('/api/favorites', (req, res, next) => {
     .then(result => {
       const [animal] = result.rows;
       res.status(201).json(animal);
+    })
+    .catch(error => next(error));
+});
+
+// handles sign ups
+app.post('/api/auth/sign-up', (req, res, next) => {
+  const { username, password } = req.body;
+  if (!username || !password) {
+    throw new ClientError(400, 'username and password are required fields');
+  }
+  argon2
+    .hash(password)
+    .then(hashedPassword => {
+      const sql = `
+        insert into "users" ("username", "password", "joinedAt")
+          values ($1, $2, now())
+          returning "userId", "username", "joinedAt"
+      `;
+      const params = [username, password];
+      db.query(sql, params)
+        .then(result => {
+          const [user] = result.rows;
+          res.status(201).json(user);
+        })
+        .catch(error => next(error));
     })
     .catch(error => next(error));
 });
