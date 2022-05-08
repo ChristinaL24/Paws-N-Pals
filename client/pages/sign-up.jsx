@@ -21,14 +21,13 @@ export default class SignUp extends React.Component {
       body: JSON.stringify(this.state)
     })
       .then(response => response.json())
-      .then(result => {
+      .then(result =>
         this.setState({
           username: '',
           password: ''
-        })
-          .catch(error => {
-            console.error('Error', error);
-          });
+        }))
+      .catch(error => {
+        console.error('Error', error);
       });
   }
 
