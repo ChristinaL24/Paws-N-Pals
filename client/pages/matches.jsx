@@ -1,4 +1,5 @@
 import React from 'react';
+import LoadingSpinner from '../components/loading-spinner';
 
 export default class Matches extends React.Component {
   constructor(props) {
@@ -98,13 +99,7 @@ export default class Matches extends React.Component {
     const { photos, name, address, age, breed, gender, size } = this.state;
 
     if (this.state.isLoading === true) {
-      return (
-        <div className="text-center position-absolute top-50 start-50 translate-middle">
-          <div className="spinner-border" role="status">
-            <span className="visually-hidden">Loading...</span>
-          </div>
-        </div>
-      );
+      return <LoadingSpinner />;
     } else {
       return (
         <div className={`animate__animated ${this.state.transition} card card-margin`}>

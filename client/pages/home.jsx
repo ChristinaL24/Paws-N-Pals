@@ -30,8 +30,7 @@ export default class Home extends React.Component {
       <div className="d-flex flex-column align-items-center">
         <h1 className="green-text mt-5">Find Nearby Pals!</h1>
         <form onSubmit={this.handleSubmit} className="w-75 mt-3">
-          <label htmlFor="search">
-          </label>
+          <label htmlFor="search"></label>
           <input
             required
             onChange={this.handleLocation}
