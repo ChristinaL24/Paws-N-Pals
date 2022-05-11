@@ -7,6 +7,7 @@ import Matches from './pages/matches';
 import SavedMatches from './pages/saved-matches';
 import ViewDetails from './pages/view-details';
 import SignUp from './pages/sign-up';
+import LogIn from './pages/log-in';
 
 export default class App extends React.Component {
   constructor(props) {
@@ -40,6 +41,9 @@ export default class App extends React.Component {
     }
     if (route.path === 'sign-up') {
       return <SignUp />;
+    }
+    if (route.path === 'log-in') {
+      return <LogIn />;
     }
   }
 

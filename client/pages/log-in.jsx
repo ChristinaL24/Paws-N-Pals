@@ -1,7 +1,7 @@
 import React from 'react';
 import { Form, Card, Button } from 'react-bootstrap';
 
-export default class SignUp extends React.Component {
+export default class LogIn extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
@@ -14,22 +14,21 @@ export default class SignUp extends React.Component {
   }
 
   handleSubmit(event) {
-    event.preventDefault();
-    fetch('/api/auth/sign-up', {
-      method: 'POST',
-      headers: { 'Content-Type': 'application/json' },
-      body: JSON.stringify(this.state)
-    })
-      .then(response => response.json())
-      .then(result =>
-        this.setState({
-          username: '',
-          password: ''
-        }))
-      .then(alert('Sign up successful! Please log in with your credentials.'))
-      .catch(error => {
-        console.error('Error', error);
-      });
+    // event.preventDefault();
+    // fetch('/api/auth/sign-in', {
+    //   method: 'POST',
+    //   headers: { 'Content-Type': 'application/json' },
+    //   body: JSON.stringify(this.state)
+    // })
+    //   .then(response => response.json())
+    //   .then(result =>
+    //     this.setState({
+    //       username: '',
+    //       password: ''
+    //     }))
+    //   .catch(error => {
+    //     console.error('Error', error);
+    //   });
   }
 
   handleUsername(event) {
@@ -44,8 +43,8 @@ export default class SignUp extends React.Component {
     return (
       <>
         <div className='mb-4'>
-          <h1 className="green-text mt-5 d-flex justify-content-center">Sign Up</h1>
-          <h5 className='d-flex justify-content-center grey-text'>Register for an account!</h5>
+          <h1 className="green-text mt-5 d-flex justify-content-center">Log In</h1>
+          <h5 className='d-flex justify-content-center grey-text'>Log into your account!</h5>
         </div>
         <Card className='m-auto shadow-sm card-width'>
           <Card.Body>
@@ -73,16 +72,16 @@ export default class SignUp extends React.Component {
                 type='submit'
                 size="lg"
                 className='green-bg border-0 rounded-pill d-grid ps-5 pe-5 m-auto'>
-                Sign Up
+                Sign In
               </Button>
             </Form>
             <div className=''>
-              <a href='#log-in' className='grey-text'>
-                <h5 className='d-flex justify-content-center'>Have an account? Log in!</h5>
+              <a href='#sign-up' className='grey-text'>
+                <h5 className='d-flex justify-content-center'>Need an account? Sign up here!</h5>
               </a>
               <a href='#' className='grey-text'>
                 <h5 className='d-flex justify-content-center'>Continue as a guest</h5>
-             </a>
+              </a>
             </div>
           </Card.Body>
         </Card>
