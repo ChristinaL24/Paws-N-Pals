@@ -14,21 +14,21 @@ export default class LogIn extends React.Component {
   }
 
   handleSubmit(event) {
-    // event.preventDefault();
-    // fetch('/api/auth/sign-in', {
-    //   method: 'POST',
-    //   headers: { 'Content-Type': 'application/json' },
-    //   body: JSON.stringify(this.state)
-    // })
-    //   .then(response => response.json())
-    //   .then(result =>
-    //     this.setState({
-    //       username: '',
-    //       password: ''
-    //     }))
-    //   .catch(error => {
-    //     console.error('Error', error);
-    //   });
+    event.preventDefault();
+    fetch('/api/auth/log-in', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify(this.state)
+    })
+      .then(response => response.json())
+      .then(result =>
+        this.setState({
+          username: '',
+          password: ''
+        }))
+      .catch(error => {
+        console.error('Error', error);
+      });
   }
 
   handleUsername(event) {
@@ -78,9 +78,6 @@ export default class LogIn extends React.Component {
             <div className=''>
               <a href='#sign-up' className='grey-text'>
                 <h5 className='d-flex justify-content-center'>Need an account? Sign up here!</h5>
-              </a>
-              <a href='#' className='grey-text'>
-                <h5 className='d-flex justify-content-center'>Continue as a guest</h5>
               </a>
             </div>
           </Card.Body>

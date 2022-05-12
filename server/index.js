@@ -9,6 +9,8 @@ const petfinder = require('@petfinder/petfinder-js');
 const client = new petfinder.Client({ apiKey: process.env.PETFINDER_KEY, secret: process.env.PETFINDER_SECRET });
 const argon2 = require('argon2');
 const pg = require('pg');
+const jwt = require('jsonwebtoken');
+const authorizationMiddleware = require('./authorization-middleware');
 const db = new pg.Pool({
   connectionString: process.env.DATABASE_URL,
   ssl: {
@@ -18,6 +20,64 @@ const db = new pg.Pool({
 
 app.use(staticMiddleware);
 app.use(jsonMiddleware);
+
+// handles sign ups
+app.post('/api/auth/sign-up', (req, res, next) => {
+  const { username, password } = req.body;
+  if (!username || !password) {
+    throw new ClientError(400, 'username and password are required fields');
+  }
+  argon2.hash(password)
+    .then(hashedPassword => {
+      const sql = `
+        insert into "users" ("username", "hashedPassword", "joinedAt")
+          values ($1, $2, now())
+          returning "userId", "username", "joinedAt"
+      `;
+      const params = [username, hashedPassword];
+      db.query(sql, params)
+        .then(result => {
+          const [user] = result.rows;
+          res.status(201).json(user);
+        })
+        .catch(error => next(error));
+    })
+    .catch(error => next(error));
+});
+
+// handles sign ins
+app.post('/api/auth/log-in', (req, res, next) => {
+  const { username, password } = req.body;
+  if (!username || !password) {
+    throw new ClientError(401, 'invalid login credentials');
+  }
+  const sql = `
+    select "userId",
+           "password"
+      from "users"
+      where "username" = $1
+  `;
+  const params = [username];
+  db.query(sql, params)
+    .then(result => {
+      const [user] = result.rows;
+      if (!user) {
+        throw new ClientError(401, 'invalid login credentials');
+      }
+      const { userId, hashedPassword } = user;
+      return argon2
+        .verify(hashedPassword, password)
+        .then(isMatching => {
+          if (!isMatching) {
+            throw new ClientError(401, 'invalid login credentials');
+          }
+          const payload = { userId, username };
+          const token = jwt.sign(payload, process.env.TOKEN_SECRET);
+          res.json({ token, user: payload });
+        });
+    })
+    .catch(error => next(error));
+});
 
 app.get('/api/matches/:location/:type', (req, res, next) => {
   const { location } = req.params;
@@ -38,6 +98,8 @@ app.get('/api/matches/:location/:type', (req, res, next) => {
     })
     .catch(error => console.error(error));
 });
+
+app.use(authorizationMiddleware);
 
 app.get('/api/saved', (req, res, next) => {
   const sql = `
@@ -91,30 +153,6 @@ app.post('/api/favorites', (req, res, next) => {
     .then(result => {
       const [animal] = result.rows;
       res.status(201).json(animal);
-    })
-    .catch(error => next(error));
-});
-
-// handles sign ups
-app.post('/api/auth/sign-up', (req, res, next) => {
-  const { username, password } = req.body;
-  if (!username || !password) {
-    throw new ClientError(400, 'username and password are required fields');
-  }
-  argon2.hash(password)
-    .then(hashedPassword => {
-      const sql = `
-        insert into "users" ("username", "password", "joinedAt")
-          values ($1, $2, now())
-          returning "userId", "username", "joinedAt"
-      `;
-      const params = [username, hashedPassword];
-      db.query(sql, params)
-        .then(result => {
-          const [user] = result.rows;
-          res.status(201).json(user);
-        })
-        .catch(error => next(error));
     })
     .catch(error => next(error));
 });

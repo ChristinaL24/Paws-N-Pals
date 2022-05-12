@@ -17,7 +17,7 @@ CREATE TABLE "public"."favorites" (
 CREATE TABLE "public"."users" (
 	"userId" serial NOT NULL,
 	"username" TEXT NOT NULL UNIQUE,
-	"password" TEXT NOT NULL UNIQUE,
+	"hashedPassword" TEXT NOT NULL UNIQUE,
 	"joinedAt" timestamp with time zone NOT NULL,
 	CONSTRAINT "users_pk" PRIMARY KEY ("userId")
 ) WITH (

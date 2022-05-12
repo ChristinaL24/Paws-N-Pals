@@ -80,9 +80,6 @@ export default class SignUp extends React.Component {
               <a href='#log-in' className='grey-text'>
                 <h5 className='d-flex justify-content-center'>Have an account? Log in!</h5>
               </a>
-              <a href='#' className='grey-text'>
-                <h5 className='d-flex justify-content-center'>Continue as a guest</h5>
-             </a>
             </div>
           </Card.Body>
         </Card>
