@@ -53,7 +53,7 @@ app.post('/api/auth/log-in', (req, res, next) => {
   }
   const sql = `
     select "userId",
-           "password"
+           "hashedPassword"
       from "users"
       where "username" = $1
   `;
@@ -79,6 +79,8 @@ app.post('/api/auth/log-in', (req, res, next) => {
     .catch(error => next(error));
 });
 
+app.use(authorizationMiddleware);
+
 app.get('/api/matches/:location/:type', (req, res, next) => {
   const { location } = req.params;
   const { type } = req.params;
@@ -98,8 +100,6 @@ app.get('/api/matches/:location/:type', (req, res, next) => {
     })
     .catch(error => console.error(error));
 });
-
-app.use(authorizationMiddleware);
 
 app.get('/api/saved', (req, res, next) => {
   const sql = `
