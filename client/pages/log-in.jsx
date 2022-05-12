@@ -8,23 +8,27 @@ export default class LogIn extends React.Component {
       username: '',
       password: ''
     };
-    this.handleSubmit = this.handleSubmit.bind(this);
+    this.handleLogIn = this.handleLogIn.bind(this);
     this.handleUsername = this.handleUsername.bind(this);
     this.handlePassword = this.handlePassword.bind(this);
   }
 
-  handleSubmit(event) {
+  handleLogIn(event) {
     event.preventDefault();
     fetch('/api/auth/log-in', {
       method: 'POST',
-      headers: { 'Content-Type': 'application/json' },
+      headers: {
+        'Content-Type': 'application/json',
+        'X-Access-Token': localStorage.getItem('jwt')
+      },
       body: JSON.stringify(this.state)
     })
       .then(response => response.json())
       .then(result => {
-        if (result.user && result.token) {
-          this.props.handleSignIn(result);
-        }
+        this.setState({
+          username: '',
+          password: ''
+        });
       })
       .catch(error => {
         console.error('Error', error);
@@ -49,7 +53,7 @@ export default class LogIn extends React.Component {
         </div>
         <Card className='m-auto shadow-sm card-width'>
           <Card.Body>
-            <Form className='p-4' onSubmit={this.handleSubmit}>
+            <Form className='p-4' onSubmit={this.handleLogIn}>
               <Form.Group className="mb-4" controlId="formUsername">
                 <Form.Control
                   onChange={this.handleUsername}

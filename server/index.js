@@ -99,16 +99,39 @@ app.get('/api/matches/:location/:type', (req, res, next) => {
     .catch(error => console.error(error));
 });
 
+// everything after this middleware requires a token
 app.use(authorizationMiddleware);
 
-app.get('/api/saved', (req, res, next) => {
+// saves matches into db
+app.post('/api/favorites', (req, res, next) => {
+  const { userId } = req.user;
+  const petId = req.body.petId;
+  const details = req.body.details;
+
   const sql = `
-    select "petId",
-           "userId",
-           "details"
-      from "favorites"
+    insert into "favorites" ("petId", "userId", "details")
+      values ($1, $2, $3)
+      returning *
   `;
-  db.query(sql)
+  const params = [petId, userId, details];
+  return db.query(sql, params)
+    .then(result => {
+      const [animal] = result.rows;
+      res.status(201).json(animal);
+    })
+    .catch(error => next(error));
+});
+
+// retrieves saved matches in db
+app.get('/api/saved', (req, res, next) => {
+  const { userId } = req.user;
+  const sql = `
+    select *
+      from "favorites"
+      where userId = $1
+  `;
+  const params = [userId];
+  db.query(sql, params)
     .then(result => res.json(result.rows))
     .catch(err => next(err));
 });
@@ -134,25 +157,6 @@ app.get('/api/details/:petId', (req, res, next) => {
       res.json(selectedPal);
     })
     .catch(err => next(err));
-});
-
-app.post('/api/favorites', (req, res, next) => {
-  const { userId } = req.user;
-  const petId = req.body.petId;
-  const details = req.body.details;
-
-  const sql = `
-    insert into "favorites" ("petId", "userId", "details")
-      values ($1, $2, $3)
-      returning *
-  `;
-  const params = [petId, userId, details];
-  return db.query(sql, params)
-    .then(result => {
-      const [animal] = result.rows;
-      res.status(201).json(animal);
-    })
-    .catch(error => next(error));
 });
 
 app.delete('/api/details/:petId', (req, res, next) => {
