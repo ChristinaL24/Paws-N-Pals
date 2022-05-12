@@ -8,13 +8,17 @@ import SavedMatches from './pages/saved-matches';
 import ViewDetails from './pages/view-details';
 import SignUp from './pages/sign-up';
 import LogIn from './pages/log-in';
-
+import decodeToken from './lib/decode-token';
 export default class App extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
+      user: null,
+      isAuthorizing: true,
       route: parseRoute(window.location.hash)
     };
+    this.handleSignIn = this.handleSignIn.bind(this);
+
   }
 
   componentDidMount() {
@@ -22,6 +26,15 @@ export default class App extends React.Component {
       const parsedRoutes = parseRoute(window.location.hash);
       this.setState({ route: parsedRoutes });
     });
+    const token = window.localStorage.getItem('jwt');
+    const user = token ? decodeToken(token) : null;
+    this.setState({ user, isAuthorizing: false });
+  }
+
+  handleSignIn(result) {
+    const { user, token } = result;
+    window.localStorage.setItem('react-context-jwt', token);
+    this.setState({ user });
   }
 
   displayMatches() {
@@ -48,6 +61,7 @@ export default class App extends React.Component {
   }
 
   render() {
+    if (this.state.isAuthorizing) return null;
     return (
       <>
         <Navbar />

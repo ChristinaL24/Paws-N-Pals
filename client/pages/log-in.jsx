@@ -21,14 +21,15 @@ export default class LogIn extends React.Component {
       body: JSON.stringify(this.state)
     })
       .then(response => response.json())
-      .then(result =>
-        this.setState({
-          username: '',
-          password: ''
-        }))
+      .then(result => {
+        if (result.user && result.token) {
+          this.props.handleSignIn(result);
+        }
+      })
       .catch(error => {
         console.error('Error', error);
       });
+    window.location.hash = '#';
   }
 
   handleUsername(event) {

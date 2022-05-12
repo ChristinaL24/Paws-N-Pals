@@ -73,13 +73,11 @@ app.post('/api/auth/log-in', (req, res, next) => {
           }
           const payload = { userId, username };
           const token = jwt.sign(payload, process.env.TOKEN_SECRET);
-          res.json({ token, user: payload });
+          res.status(200).json({ token, user: payload });
         });
     })
     .catch(error => next(error));
 });
-
-app.use(authorizationMiddleware);
 
 app.get('/api/matches/:location/:type', (req, res, next) => {
   const { location } = req.params;
@@ -100,6 +98,8 @@ app.get('/api/matches/:location/:type', (req, res, next) => {
     })
     .catch(error => console.error(error));
 });
+
+app.use(authorizationMiddleware);
 
 app.get('/api/saved', (req, res, next) => {
   const sql = `
@@ -137,9 +137,8 @@ app.get('/api/details/:petId', (req, res, next) => {
 });
 
 app.post('/api/favorites', (req, res, next) => {
-
+  const { userId } = req.user;
   const petId = req.body.petId;
-  const userId = 1;
   const details = req.body.details;
 
   const sql = `
@@ -147,7 +146,6 @@ app.post('/api/favorites', (req, res, next) => {
       values ($1, $2, $3)
       returning *
   `;
-
   const params = [petId, userId, details];
   return db.query(sql, params)
     .then(result => {
