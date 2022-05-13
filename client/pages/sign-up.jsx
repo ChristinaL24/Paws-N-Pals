@@ -26,7 +26,7 @@ export default class SignUp extends React.Component {
           username: '',
           password: ''
         }))
-      .then(alert('Sign up successful! Please log in with your credentials.'))
+      .then(() => alert('Sign up successful! Please log in with your credentials.'))
       .catch(error => {
         console.error('Error', error);
       });
