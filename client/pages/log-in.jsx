@@ -67,8 +67,8 @@ export default class LogIn extends React.Component {
                 <Form.Control
                   onChange={this.handlePassword}
                   required
-                  type="userPassword"
-                  name="userPassword"
+                  type="password"
+                  name="password"
                   value={this.state.password}
                   placeholder="Password" />
               </Form.Group>
