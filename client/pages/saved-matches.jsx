@@ -36,7 +36,11 @@ export default class SavedMatches extends React.Component {
       }
     }
     fetch(`/api/details/${selectedPetId}`, {
-      method: 'DELETE'
+      method: 'DELETE',
+      headers: {
+        'Content-Type': 'application/json',
+        'X-Access-Token': localStorage.getItem('jwt')
+      }
     })
       .then(() => {
         const deleteAnimal = this.state.animals.slice();
