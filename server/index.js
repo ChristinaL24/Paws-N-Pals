@@ -105,16 +105,18 @@ app.use(authorizationMiddleware);
 // saves matches into db
 app.post('/api/favorites', (req, res, next) => {
   const { userId } = req.user;
-  const petId = req.body.petId;
-  const details = req.body.details;
+  const { petId, details } = req.body;
+  if (!petId || !details) {
+    throw new ClientError(400, 'sorry! this pet is no longer available or cannot be found');
+  }
 
   const sql = `
-    insert into "favorites" ("petId", "userId", "details")
+    insert into "favorites" ("userId", "petId", "details")
       values ($1, $2, $3)
       returning *
   `;
-  const params = [petId, userId, details];
-  return db.query(sql, params)
+  const params = [userId, petId, details];
+  db.query(sql, params)
     .then(result => {
       const [animal] = result.rows;
       res.status(201).json(animal);
@@ -132,7 +134,9 @@ app.get('/api/saved', (req, res, next) => {
   `;
   const params = [userId];
   db.query(sql, params)
-    .then(result => res.json(result.rows))
+    .then(result => {
+      res.json(result.rows);
+    })
     .catch(err => next(err));
 });
 

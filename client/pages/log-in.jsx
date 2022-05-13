@@ -18,8 +18,7 @@ export default class LogIn extends React.Component {
     fetch('/api/auth/log-in', {
       method: 'POST',
       headers: {
-        'Content-Type': 'application/json',
-        'X-Access-Token': localStorage.getItem('jwt')
+        'Content-Type': 'application/json'
       },
       body: JSON.stringify(this.state)
     })
@@ -29,6 +28,7 @@ export default class LogIn extends React.Component {
           username: '',
           password: ''
         });
+        window.localStorage.setItem('jwt', result.token);
       })
       .catch(error => {
         console.error('Error', error);
@@ -67,8 +67,8 @@ export default class LogIn extends React.Component {
                 <Form.Control
                   onChange={this.handlePassword}
                   required
-                  type="password"
-                  name="password"
+                  type="userPassword"
+                  name="userPassword"
                   value={this.state.password}
                   placeholder="Password" />
               </Form.Group>

@@ -72,11 +72,12 @@ export default class Matches extends React.Component {
     fetch('/api/favorites', {
       method: 'POST',
       headers: {
-        'Content-Type': 'application/json'
+        'Content-Type': 'application/json',
+        'X-Access-Token': localStorage.getItem('jwt')
       },
       body: JSON.stringify({
         petId: Number(this.state.id),
-        userId: this.state.userId,
+        userId: Number(this.state.userId),
         details: {
           name: this.state.name,
           photos: this.state.photos,
