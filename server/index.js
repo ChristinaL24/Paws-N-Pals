@@ -109,7 +109,6 @@ app.post('/api/favorites', (req, res, next) => {
   if (!petId || !details) {
     throw new ClientError(400, 'sorry! this pet is no longer available or cannot be found');
   }
-
   const sql = `
     insert into "favorites" ("userId", "petId", "details")
       values ($1, $2, $3)
@@ -127,10 +126,13 @@ app.post('/api/favorites', (req, res, next) => {
 // retrieves saved matches in db
 app.get('/api/saved', (req, res, next) => {
   const { userId } = req.user;
+  if (!userId) {
+    throw new ClientError(401, 'invalid user credentials');
+  }
   const sql = `
     select *
       from "favorites"
-      where userId = $1
+      where "userId" = $1
   `;
   const params = [userId];
   db.query(sql, params)
@@ -140,10 +142,12 @@ app.get('/api/saved', (req, res, next) => {
     .catch(err => next(err));
 });
 
+// gets pet details
 app.get('/api/details/:petId', (req, res, next) => {
+  const { userId } = req.user;
   const petId = Number(req.params.petId);
-  if (!petId) {
-    throw new ClientError(400, 'petId must be a positive integer');
+  if (!userId) {
+    throw new ClientError(401, 'invalid user credentials');
   }
   const sql = `
     select "petId",
@@ -164,9 +168,10 @@ app.get('/api/details/:petId', (req, res, next) => {
 });
 
 app.delete('/api/details/:petId', (req, res, next) => {
+  const { userId } = req.user;
   const petId = Number(req.params.petId);
-  if (!petId) {
-    throw new ClientError(400, 'petId must be a positive integer');
+  if (!userId) {
+    throw new ClientError(401, 'invalid user credentials');
   }
   const sql = `
   delete from "favorites"

@@ -13,7 +13,13 @@ export default class SavedMatches extends React.Component {
   }
 
   renderSavedMatches() {
-    fetch('/api/saved')
+    fetch('/api/saved', {
+      method: 'GET',
+      headers: {
+        'Content-Type': 'application/json',
+        'X-Access-Token': localStorage.getItem('jwt')
+      }
+    })
       .then(response => response.json())
       .then(animals => this.setState({ animals }))
       .catch(error => {

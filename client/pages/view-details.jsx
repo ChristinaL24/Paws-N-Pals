@@ -24,7 +24,13 @@ export default class ViewDetails extends React.Component {
   }
 
   renderDetails() {
-    fetch(`/api/details/${this.props.petId}`)
+    fetch(`/api/details/${this.props.petId}`, {
+      method: 'GET',
+      headers: {
+        'Content-Type': 'application/json',
+        'X-Access-Token': localStorage.getItem('jwt')
+      }
+    })
       .then(res => res.json())
       .then(animal => {
         this.setState({ animal });
