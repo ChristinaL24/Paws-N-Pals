@@ -1,35 +1,39 @@
 import React from 'react';
 import { Form, Card, Button } from 'react-bootstrap';
 
-export default class SignUp extends React.Component {
+export default class LogIn extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
       username: '',
       password: ''
     };
-    this.handleSubmit = this.handleSubmit.bind(this);
+    this.handleLogIn = this.handleLogIn.bind(this);
     this.handleUsername = this.handleUsername.bind(this);
     this.handlePassword = this.handlePassword.bind(this);
   }
 
-  handleSubmit(event) {
+  handleLogIn(event) {
     event.preventDefault();
-    fetch('/api/auth/sign-up', {
+    fetch('/api/auth/log-in', {
       method: 'POST',
-      headers: { 'Content-Type': 'application/json' },
+      headers: {
+        'Content-Type': 'application/json'
+      },
       body: JSON.stringify(this.state)
     })
       .then(response => response.json())
-      .then(result =>
+      .then(result => {
         this.setState({
           username: '',
           password: ''
-        }))
-      .then(() => alert('Sign up successful! Please log in with your credentials.'))
+        });
+        window.localStorage.setItem('jwt', result.token);
+      })
       .catch(error => {
         console.error('Error', error);
       });
+    window.location.hash = '#';
   }
 
   handleUsername(event) {
@@ -44,12 +48,12 @@ export default class SignUp extends React.Component {
     return (
       <>
         <div className='mb-4'>
-          <h1 className="green-text mt-5 d-flex justify-content-center">Sign Up</h1>
-          <h5 className='d-flex justify-content-center grey-text'>Register for an account!</h5>
+          <h1 className="green-text mt-5 d-flex justify-content-center">Log In</h1>
+          <h5 className='d-flex justify-content-center grey-text'>Log into your account!</h5>
         </div>
         <Card className='m-auto shadow-sm card-width'>
           <Card.Body>
-            <Form className='p-4' onSubmit={this.handleSubmit}>
+            <Form className='p-4' onSubmit={this.handleLogIn}>
               <Form.Group className="mb-4" controlId="formUsername">
                 <Form.Control
                   onChange={this.handleUsername}
@@ -73,12 +77,12 @@ export default class SignUp extends React.Component {
                 type='submit'
                 size="lg"
                 className='green-bg border-0 rounded-pill d-grid ps-5 pe-5 m-auto'>
-                Sign Up
+                Sign In
               </Button>
             </Form>
             <div className=''>
-              <a href='#log-in' className='grey-text'>
-                <h5 className='d-flex justify-content-center'>Have an account? Log in!</h5>
+              <a href='#sign-up' className='grey-text'>
+                <h5 className='d-flex justify-content-center'>Need an account? Sign up here!</h5>
               </a>
             </div>
           </Card.Body>

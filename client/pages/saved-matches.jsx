@@ -13,7 +13,13 @@ export default class SavedMatches extends React.Component {
   }
 
   renderSavedMatches() {
-    fetch('/api/saved')
+    fetch('/api/saved', {
+      method: 'GET',
+      headers: {
+        'Content-Type': 'application/json',
+        'X-Access-Token': localStorage.getItem('jwt')
+      }
+    })
       .then(response => response.json())
       .then(animals => this.setState({ animals }))
       .catch(error => {
@@ -30,7 +36,11 @@ export default class SavedMatches extends React.Component {
       }
     }
     fetch(`/api/details/${selectedPetId}`, {
-      method: 'DELETE'
+      method: 'DELETE',
+      headers: {
+        'Content-Type': 'application/json',
+        'X-Access-Token': localStorage.getItem('jwt')
+      }
     })
       .then(() => {
         const deleteAnimal = this.state.animals.slice();
@@ -48,9 +58,9 @@ export default class SavedMatches extends React.Component {
         <div className="card text-center m-5">
           <div className="card-body">
             <h5 className="card-title">There are currently no saved pals.</h5>
-            <p className="card-text"> Click the button below to find your new best pal! <i className="fa-solid fa-dog fs-5"></i>
+            <p className="card-text">Log in or sign up to see your saved pals! <i className="fa-solid fa-dog fs-5"></i>
             </p>
-            <a href="#" className="btn green-bg text-white">Let&apos;s go!</a>
+            <a href="#log-in" className="btn green-bg text-white">Let&apos;s go!</a>
           </div>
         </div>
       );
