@@ -61,18 +61,18 @@ export default class SavedMatches extends React.Component {
           <div className="card-body">
             <h5 className="card-title">There are currently no saved pals.</h5>
             { user !== null &&
-            <>
-              <p className="card-text">Click the button to find your next pal! <i className="fa-solid fa-dog fs-5"></i>
-              </p>
-              <a href="#" className="btn green-bg text-white">Let&apos;s go!</a>
-            </>
+              <>
+                <p className="card-text">Click the button to find your next pal! <i className="fa-solid fa-dog fs-5"></i>
+                </p>
+                <a href="#" className="btn green-bg text-white">Let&apos;s go!</a>
+              </>
             }
             { user === null &&
-            <>
-              <p className="card-text">Log in or sign up to see your save your pals! <i className="fa-solid fa-dog fs-5"></i>
-              </p>
-              <a href="#log-in" className="btn green-bg text-white">Let&apos;s go!</a>
-            </>
+              <>
+                <p className="card-text">Log in or sign up to see your save your pals! <i className="fa-solid fa-dog fs-5"></i>
+                </p>
+                <a href="#log-in" className="btn green-bg text-white">Let&apos;s go!</a>
+              </>
             }
           </div>
         </div>
@@ -87,7 +87,7 @@ export default class SavedMatches extends React.Component {
                 <div key={animal.petId} className='col'>
                   <div className="card h-100 hover">
                     <button className='bg-transparent position-absolute top-0 start-0' id={animal.petId} onClick={this.handleDelete}>
-                      <i className="fa-solid fa-heart"></i>
+                      <i className="fa-solid fa-heart hover"></i>
                     </button>
                     <a href={`#details?petId=${animal.petId}`} className='text-decoration-none'>
                       <img src={animal.details.photos} className="card-img-top" alt={animal.details.name} />

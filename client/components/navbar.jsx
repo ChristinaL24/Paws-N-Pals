@@ -20,34 +20,34 @@ export default class Navbar extends React.Component {
           </div>
           <div className="offcanvas-body" data-bs-toggle="offcanvas">
             <div className="nav-links">
-              <a href='#' className='tab-color hover text-black text-decoration-none d-flex p-2'>
-                <i className="fa-solid fa-house-chimney fs-2 pe-4"></i>
+              <a href='#' className='text-black text-decoration-none d-flex p-2 border-top'>
+                <i className="fa-solid fa-house-chimney fs-2 pe-4 pt-1"></i>
                 <h3>Home</h3>
               </a>
-              <a href='#saved-matches' className='tab-color hover text-black text-decoration-none d-flex p-2'>
-                <i className='fa-solid fa-paw fs-2 pe-4'></i>
+              <a href='#saved-matches' className='text-black text-decoration-none d-flex p-2 border-top border-bottom'>
+                <i className='fa-solid fa-paw fs-2 pe-4 pt-2'></i>
                 <h3>Matches</h3>
               </a>
-              {user !== null &&
-              <>
-                <div className="d-grid mt-27">
-                  <button className="btn btn-outline-dark"
-                          type="button"
-                          onClick={handleLogOut}>
-                    <i className='fa-solid fa-right-to-bracket fs-2'></i>
-                    <h3>Log Out</h3>
-                  </button>
-                </div>
-              </>
+              { user !== null &&
+                <>
+                  <div className="d-grid mt-27">
+                    <button className="btn btn-outline-dark"
+                            type="button"
+                            onClick={handleLogOut}>
+                      <i className='fa-solid fa-right-to-bracket fs-2 pt-3'></i>
+                      <h3>Log Out</h3>
+                    </button>
+                  </div>
+                </>
               }
               { user === null &&
                 <>
-                  <a href='#sign-up' className='tab-color hover text-black text-decoration-none d-flex p-2'>
-                    <i className='fa-solid fa-user-plus fs-2 pe-3'></i>
+                  <a href='#sign-up' className='text-black text-decoration-none d-flex p-2 border-bottom'>
+                    <i className='fa-solid fa-user-plus fs-2 pe-3 pt-2'></i>
                     <h3>Sign Up</h3>
                   </a>
-                  <a href='#log-in' className='tab-color hover text-black text-decoration-none d-flex p-2'>
-                    <i className='fa-solid fa-right-to-bracket fs-2 pe-4'></i>
+                  <a href='#log-in' className='text-black text-decoration-none d-flex p-2 border-bottom'>
+                    <i className='fa-solid fa-right-to-bracket fs-2 pe-4 pt-2'></i>
                     <h3>Log In</h3>
                   </a>
                 </>

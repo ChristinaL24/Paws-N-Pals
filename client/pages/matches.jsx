@@ -122,10 +122,10 @@ export default class Matches extends React.Component {
               </div>
               <div className='d-flex flex-wrap justify-content-center button-gap pb-3'>
                 <button className='bg-transparent' onClick={this.handleUnmatch}>
-                  <i className='fa-solid fa-circle-xmark'></i>
+                  <i className='fa-solid fa-circle-xmark hover'></i>
                 </button>
                 <button className='bg-transparent' onClick={this.handleSave}>
-                  <i className="fa-solid fa-heart"></i>
+                  <i className="fa-solid fa-heart hover"></i>
                 </button>
               </div>
             </div>

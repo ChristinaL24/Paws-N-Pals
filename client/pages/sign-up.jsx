@@ -8,12 +8,12 @@ export default class SignUp extends React.Component {
       username: '',
       password: ''
     };
-    this.handleSubmit = this.handleSubmit.bind(this);
+    this.handleSignUp = this.handleSignUp.bind(this);
     this.handleUsername = this.handleUsername.bind(this);
     this.handlePassword = this.handlePassword.bind(this);
   }
 
-  handleSubmit(event) {
+  handleSignUp(event) {
     event.preventDefault();
     fetch('/api/auth/sign-up', {
       method: 'POST',
@@ -51,7 +51,7 @@ export default class SignUp extends React.Component {
         </div>
         <Card className='m-auto shadow-sm card-width'>
           <Card.Body>
-            <Form className='p-4' onSubmit={this.handleSubmit}>
+            <Form className='p-4' onSubmit={this.handleSignUp}>
               <Form.Group className="mb-4" controlId="formUsername">
                 <Form.Control
                   onChange={this.handleUsername}
