@@ -1,4 +1,5 @@
 import React from 'react';
+import AppContext from '../lib/app-context';
 export default class SavedMatches extends React.Component {
   constructor(props) {
     super(props);
@@ -53,14 +54,26 @@ export default class SavedMatches extends React.Component {
   }
 
   render() {
+    const { user } = this.context;
     if (this.state.animals[0] === undefined) {
       return (
         <div className="card text-center m-5">
           <div className="card-body">
             <h5 className="card-title">There are currently no saved pals.</h5>
-            <p className="card-text">Log in or sign up to see your saved pals! <i className="fa-solid fa-dog fs-5"></i>
-            </p>
-            <a href="#log-in" className="btn green-bg text-white">Let&apos;s go!</a>
+            { user !== null &&
+            <>
+              <p className="card-text">Click the button to find your next pal! <i className="fa-solid fa-dog fs-5"></i>
+              </p>
+              <a href="#" className="btn green-bg text-white">Let&apos;s go!</a>
+            </>
+            }
+            { user === null &&
+            <>
+              <p className="card-text">Log in or sign up to see your save your pals! <i className="fa-solid fa-dog fs-5"></i>
+              </p>
+              <a href="#log-in" className="btn green-bg text-white">Let&apos;s go!</a>
+            </>
+            }
           </div>
         </div>
       );
@@ -95,3 +108,5 @@ export default class SavedMatches extends React.Component {
     }
   }
 }
+
+SavedMatches.contextType = AppContext;

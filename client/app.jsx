@@ -35,6 +35,7 @@ export default class App extends React.Component {
   handleLogOut() {
     window.localStorage.removeItem('react-context-jwt');
     this.setState({ user: null });
+    window.location.hash = '#log-in';
   }
 
   displayMatches() {

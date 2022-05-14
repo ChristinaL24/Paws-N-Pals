@@ -35,7 +35,6 @@ export default class Navbar extends React.Component {
                           type="button"
                           onClick={handleLogOut}>
                     <i className='fa-solid fa-right-to-bracket fs-2'></i>
-
                     <h3>Log Out</h3>
                   </button>
                 </div>

@@ -30,6 +30,8 @@ export default class SignUp extends React.Component {
       .catch(error => {
         console.error('Error', error);
       });
+    window.location.hash = '#log-in';
+
   }
 
   handleUsername(event) {
