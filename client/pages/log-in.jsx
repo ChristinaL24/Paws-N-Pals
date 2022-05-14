@@ -25,8 +25,8 @@ export default class LogIn extends React.Component {
       .then(response => response.json())
       .then(result => {
         this.setState({
-          username: '',
-          password: ''
+          username: result.username,
+          password: result.password
         });
         window.localStorage.setItem('jwt', result.token);
       })

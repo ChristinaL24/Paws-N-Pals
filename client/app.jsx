@@ -33,7 +33,7 @@ export default class App extends React.Component {
   }
 
   handleLogOut() {
-    window.localStorage.removeItem('react-context-jwt');
+    window.localStorage.removeItem('jwt');
     this.setState({ user: null });
     window.location.hash = '#log-in';
   }

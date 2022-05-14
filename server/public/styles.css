@@ -60,14 +60,14 @@ button {
   width: 25rem;
 }
 
-h3 {
+.link-hover {
   display: block;
   position: relative;
   padding: 0.2em 0;
 }
 
 /* Fade in */
-h3::after {
+.link-hover::after {
   content: "";
   position: absolute;
   bottom: 0;
@@ -79,8 +79,8 @@ h3::after {
   transition: opacity 300ms, transform 300ms;
 }
 
-h3:hover::after,
-h3:focus::after {
+.link-hover:hover::after,
+.link-hover:focus::after {
   opacity: 1;
   transform: translate3d(0, 0.2em, 0);
 }

@@ -1,12 +1,13 @@
 import React from 'react';
 import GoogleMaps from '../components/google-maps';
 import Geocode from 'react-geocode';
+import { CardGroup, Card } from 'react-bootstrap';
 
 const styles = {
   image: {
     width: '100%',
-    height: '100%',
-    objectFit: 'contain'
+    height: '70%',
+    objectFit: 'cover'
   }
 };
 
@@ -56,42 +57,66 @@ export default class ViewDetails extends React.Component {
 
     const { details } = this.state.animal;
     return (
-      <div className="card shadow-sm">
-        <div className="card-body">
-          <div className="row mb-4">
-            <div className="col-12 col-sm-6 col-md-5">
-              <img className='pt-5' src={details.photos} alt={details.name} style={styles.image} />
-            </div>
-            <div className="col-12 col-sm-6 col-md-7">
-              <h2 className="green-text m-3 d-flex justify-content-center">{details.name}</h2>
-              <p className="text-secondary"><span className="fw-bolder">Located In: </span>{details.address.city}, {details.address.state}</p>
+      <CardGroup className='mt-3'>
+        <Card className='m-2'>
+          <h1 className="text-secondary mt-2 d-flex justify-content-center">{details.name}</h1>
+          <Card.Img variant="top" src={details.photos} style={styles.image} alt={details.name}/>
+          <Card.Body>
+            <Card.Text className='mt-2'>
               <p className="text-secondary"><span className="fw-bolder">Age: </span>{details.age}</p>
               <p className="text-secondary"><span className="fw-bolder">Breed: </span>{details.breed}</p>
               <p className="text-secondary"><span className="fw-bolder">Gender: </span>{details.gender} </p>
               <p className="text-secondary"><span className="fw-bolder">Size: </span>{details.size} </p>
+            </Card.Text>
+          </Card.Body>
+        </Card>
+        <Card className='m-2'>
+          <Card.Body>
+            <Card.Text>
               <p className="text-secondary">
-                <span className="fw-bolder">URL: </span>
-                <a href={details.url} className='text-secondary'>{details.url}</a>
+                <span className="fw-bolder">Location: </span>
               </p>
-            </div>
-            <div>
-              <p className="text-secondary">
-                <span className="fw-bolder">Pal&#39;s Address: </span>
-              </p>
-              <GoogleMaps coordinates={this.state.map} />
               <p className='text-secondary'>
-                {details.address.address1} <br />
-                {details.address.city}, {details.address.state}, {details.address.postcode}
+                {details.address.address1} {details.address.city}, {details.address.state}, {details.address.postcode}
               </p>
-              <p className="text-secondary"><span className="fw-bolder">Email: </span>{details.email}</p>
-              <p className="text-secondary"><span className="fw-bolder">Phone: </span>{details.phone}</p>
-              <a href='#saved-matches'>
-                <i className="fa-solid fa-circle-arrow-left green-text pb-3"></i>
-              </a>
-            </div>
-          </div>
-        </div>
-      </div>
+              <GoogleMaps coordinates={this.state.map}/>
+              { details.email !== null &&
+                <p className="text-secondary mt-2">
+                  <span className="fw-bolder">Email: </span>
+                  {details.email}
+                </p>
+              }
+              { details.email === null &&
+                <p className="text-secondary mt-2">
+                  <span className="fw-bolder">Email: </span>
+                  Sorry! This pal&#39;s organization did not provide an email
+                </p>
+              }
+              { details.phone !== null &&
+                <p className="text-secondary">
+                  <span className="fw-bolder">Phone: </span>
+                  {details.phone}
+                </p>
+              }
+              { details.phone === null &&
+                <p className="text-secondary">
+                  <span className="fw-bolder">Phone: </span>
+                  Sorry! This pal&#39;s organization did not provide a number
+                </p>
+              }
+              <p className="text-secondary">
+                <span className="fw-bolder">Need more info? <br /> </span>
+                <a href={details.url} className='text-secondary'>
+                  Click on this link to learn how you can adopt this pal!
+                </a>
+              </p>
+            </Card.Text>
+            <a href='#saved-matches'>
+              <i className="fa-solid fa-circle-arrow-left green-text mt-3"></i>
+            </a>
+          </Card.Body>
+        </Card>
+      </CardGroup>
     );
   }
 }
