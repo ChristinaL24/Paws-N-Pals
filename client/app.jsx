@@ -9,6 +9,8 @@ import ViewDetails from './pages/view-details';
 import SignUp from './pages/sign-up';
 import LogIn from './pages/log-in';
 import decodeToken from './lib/decode-token';
+import AppContext from './lib/app-context';
+
 export default class App extends React.Component {
   constructor(props) {
     super(props);
@@ -17,6 +19,7 @@ export default class App extends React.Component {
       isAuthorizing: true,
       route: parseRoute(window.location.hash)
     };
+    this.handleLogOut = this.handleLogOut.bind(this);
   }
 
   componentDidMount() {
@@ -27,6 +30,11 @@ export default class App extends React.Component {
     const token = window.localStorage.getItem('jwt');
     const user = token ? decodeToken(token) : null;
     this.setState({ user, isAuthorizing: false });
+  }
+
+  handleLogOut() {
+    window.localStorage.removeItem('react-context-jwt');
+    this.setState({ user: null });
   }
 
   displayMatches() {
@@ -54,13 +62,18 @@ export default class App extends React.Component {
 
   render() {
     if (this.state.isAuthorizing) return null;
+    const { user } = this.state;
+    const { handleLogOut } = this;
+    const contextValue = { user, handleLogOut };
     return (
-      <>
-        <Navbar />
-        <PageContainer>
-          { this.displayMatches() }
-        </PageContainer>
-      </>
+      <AppContext.Provider value={contextValue}>
+        <>
+          <Navbar />
+          <PageContainer>
+            { this.displayMatches() }
+          </PageContainer>
+        </>
+      </AppContext.Provider>
     );
   }
 }

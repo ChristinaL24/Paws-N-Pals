@@ -69,7 +69,7 @@ export default class SignUp extends React.Component {
                   placeholder="Password" />
               </Form.Group>
               <Button
-                variant="primary"
+                variant="success"
                 type='submit'
                 size="lg"
                 className='green-bg border-0 rounded-pill d-grid ps-5 pe-5 m-auto'>
