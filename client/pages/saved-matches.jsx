@@ -69,7 +69,7 @@ export default class SavedMatches extends React.Component {
             }
             { user === null &&
               <>
-                <p className="card-text">Log in or sign up to see your save your pals! <i className="fa-solid fa-dog fs-5"></i>
+                <p className="card-text">Log in or sign up to see your saved pals! <i className="fa-solid fa-dog fs-5"></i>
                 </p>
                 <a href="#log-in" className="btn green-bg text-white">Let&apos;s go!</a>
               </>

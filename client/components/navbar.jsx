@@ -4,7 +4,6 @@ import AppContext from '../lib/app-context';
 export default class Navbar extends React.Component {
   render() {
     const { user, handleLogOut } = this.context;
-
     return (
       <header className='green-bg d-flex'>
         <i className="fa-solid fa-bars text-white fs-2 pt-3 ps-2" data-bs-toggle="offcanvas" href="#offcanvasExample" role="button" aria-controls="offcanvasExample"></i>
