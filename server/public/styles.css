@@ -21,6 +21,14 @@ button {
   color: rgb(83, 83, 83);
 }
 
+.blue-bg {
+  background-color: rgb(62, 139, 255);
+}
+
+.red-bg {
+  background-color: rgb(255, 203, 203);
+}
+
 .outline-none {
   outline: none;
 }
@@ -35,12 +43,12 @@ button {
 
 .fa-solid.fa-heart {
   font-size: 3rem;
-  color: #ee8a8a;
+  color: #f36c6c;
 }
 
 .fa-solid.fa-circle-xmark {
   font-size: 3rem;
-  color: #c6e2f2;
+  color: #b3e3ff;
 }
 
 .fa-circle-arrow-left {
@@ -56,17 +64,12 @@ button {
   transform: scale(1.1);
 }
 
-.width {
-  width: 25rem;
-}
-
 .link-hover {
   display: block;
   position: relative;
   padding: 0.2em 0;
 }
 
-/* Fade in */
 .link-hover::after {
   content: "";
   position: absolute;

@@ -39,7 +39,7 @@ body {
 
 .card-max-width-height {
   max-width: 650px;
-  height: 650px;
+  max-height: 670px;
 }
 
 @media (min-width: 768px) {
@@ -56,7 +56,7 @@ body {
   }
 
   .button-gap {
-    gap: 6.5rem;
+    gap: 4rem;
   }
 }
 
@@ -70,15 +70,15 @@ body {
   }
 
   .card-body {
-    line-height: 1.5rem;
+    line-height: 1.3rem;
   }
 
   .button-gap {
-    gap: 8rem;
+    gap: 5rem;
   }
 
   .fa-solid.fa-heart,
   .fa-solid.fa-circle-xmark {
-    font-size: 4.5rem !important;
+    font-size: 3.5rem !important;
   }
 }

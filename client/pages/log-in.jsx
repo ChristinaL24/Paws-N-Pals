@@ -1,7 +1,6 @@
 import React from 'react';
 import { Form, Card, Button } from 'react-bootstrap';
 import AppContext from '../lib/app-context';
-import Redirect from '../components/redirect';
 
 export default class LogIn extends React.Component {
   constructor(props) {
@@ -43,8 +42,6 @@ export default class LogIn extends React.Component {
   }
 
   render() {
-    const { user } = this.context;
-    if (user) return <Redirect to="#" />;
     return (
       <>
         <div className='mb-4'>
