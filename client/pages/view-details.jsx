@@ -57,6 +57,7 @@ export default class ViewDetails extends React.Component {
 
     const { details } = this.state.animal;
     return (
+
       <CardGroup className='mt-3'>
         <Card className='m-2'>
           <h1 className="text-secondary mt-2 d-flex justify-content-center">{details.name}</h1>
@@ -67,6 +68,9 @@ export default class ViewDetails extends React.Component {
               <p className="text-secondary"><span className="fw-bolder">Breed: </span>{details.breed}</p>
               <p className="text-secondary"><span className="fw-bolder">Gender: </span>{details.gender} </p>
               <p className="text-secondary"><span className="fw-bolder">Size: </span>{details.size} </p>
+               <a href='#saved-matches'>
+          <i className="fa-solid fa-circle-arrow-left green-text mt-3"></i>
+        </a>
             </Card.Text>
           </Card.Body>
         </Card>
@@ -111,9 +115,6 @@ export default class ViewDetails extends React.Component {
                 </a>
               </p>
             </Card.Text>
-            <a href='#saved-matches'>
-              <i className="fa-solid fa-circle-arrow-left green-text mt-3"></i>
-            </a>
           </Card.Body>
         </Card>
       </CardGroup>
