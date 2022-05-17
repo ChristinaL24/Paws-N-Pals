@@ -19,6 +19,7 @@ export default class App extends React.Component {
       isAuthorizing: true,
       route: parseRoute(window.location.hash)
     };
+    this.handleLogIn = this.handleLogIn.bind(this);
     this.handleLogOut = this.handleLogOut.bind(this);
   }
 
@@ -32,13 +33,19 @@ export default class App extends React.Component {
     this.setState({ user, isAuthorizing: false });
   }
 
+  handleLogIn(result) {
+    const { user, token } = result;
+    window.localStorage.setItem('jwt', token);
+    this.setState({ user });
+  }
+
   handleLogOut() {
     window.localStorage.removeItem('jwt');
     this.setState({ user: null });
     window.location.hash = '#log-in';
   }
 
-  displayMatches() {
+  displayPage() {
     const { route } = this.state;
     if (route.path === '') {
       return <Home />;
@@ -57,7 +64,7 @@ export default class App extends React.Component {
       return <SignUp />;
     }
     if (route.path === 'log-in') {
-      return <LogIn />;
+      return <LogIn logIn={this.handleLogIn}/>;
     }
   }
 
@@ -70,8 +77,8 @@ export default class App extends React.Component {
       <AppContext.Provider value={contextValue}>
         <>
           <Navbar />
-          <PageContainer>
-            { this.displayMatches() }
+          <PageContainer >
+            { this.displayPage() }
           </PageContainer>
         </>
       </AppContext.Provider>

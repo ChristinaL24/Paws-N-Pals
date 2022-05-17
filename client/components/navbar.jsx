@@ -29,13 +29,12 @@ export default class Navbar extends React.Component {
                 <h3 className='link-hover'>Matches</h3>
               </a>
               { user !== null &&
-              <div className="d-grid vh-55">
-                <button className="btn btn-outline-dark"
-                        onClick={handleLogOut}>
-                  <i className='fa-solid fa-right-to-bracket fs-2 pt-3'></i>
-                  <h3>Log Out</h3>
-                </button>
-              </div>
+                <>
+                 <a onClick={handleLogOut} className='text-black text-decoration-none d-flex p-2 border-bottom'>
+                    <i className='fa-solid fa-right-to-bracket fs-2 pe-4 pt-2'></i>
+                    <h3 className='link-hover'>Log Out</h3>
+                  </a>
+                </>
               }
               { user === null &&
               <>

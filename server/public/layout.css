@@ -41,10 +41,6 @@ body {
   width: 500px;
 }
 
-.vh-55 {
-  margin-top: 55vh;
-}
-
 @media (min-width: 768px) {
   .media-font-size {
     font-size: 2.5rem;
