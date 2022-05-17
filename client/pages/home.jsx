@@ -26,6 +26,7 @@ export default class Home extends React.Component {
   }
 
   render() {
+
     return (
       <div className="d-flex flex-column align-items-center">
         <h1 className="green-text mt-5">Find Nearby Pals!</h1>

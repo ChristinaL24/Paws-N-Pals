@@ -41,8 +41,8 @@ body {
   width: 500px;
 }
 
-.mt-27 {
-  margin-top: 27rem;
+.vh-55 {
+  margin-top: 55vh;
 }
 
 @media (min-width: 768px) {

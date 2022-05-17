@@ -19,7 +19,6 @@ export default class App extends React.Component {
       isAuthorizing: true,
       route: parseRoute(window.location.hash)
     };
-    this.handleLogIn = this.handleLogIn.bind(this);
     this.handleLogOut = this.handleLogOut.bind(this);
   }
 
@@ -31,10 +30,6 @@ export default class App extends React.Component {
     const token = window.localStorage.getItem('jwt');
     const user = token ? decodeToken(token) : null;
     this.setState({ user, isAuthorizing: false });
-  }
-
-  handleLogIn() {
-
   }
 
   handleLogOut() {
