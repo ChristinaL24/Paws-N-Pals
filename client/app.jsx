@@ -9,6 +9,8 @@ import ViewDetails from './pages/view-details';
 import SignUp from './pages/sign-up';
 import LogIn from './pages/log-in';
 import decodeToken from './lib/decode-token';
+import AppContext from './lib/app-context';
+
 export default class App extends React.Component {
   constructor(props) {
     super(props);
@@ -17,6 +19,8 @@ export default class App extends React.Component {
       isAuthorizing: true,
       route: parseRoute(window.location.hash)
     };
+    this.handleLogIn = this.handleLogIn.bind(this);
+    this.handleLogOut = this.handleLogOut.bind(this);
   }
 
   componentDidMount() {
@@ -29,7 +33,19 @@ export default class App extends React.Component {
     this.setState({ user, isAuthorizing: false });
   }
 
-  displayMatches() {
+  handleLogIn(result) {
+    const { user, token } = result;
+    window.localStorage.setItem('jwt', token);
+    this.setState({ user });
+  }
+
+  handleLogOut() {
+    window.localStorage.removeItem('jwt');
+    this.setState({ user: null });
+    window.location.hash = '#log-in';
+  }
+
+  displayPage() {
     const { route } = this.state;
     if (route.path === '') {
       return <Home />;
@@ -48,19 +64,24 @@ export default class App extends React.Component {
       return <SignUp />;
     }
     if (route.path === 'log-in') {
-      return <LogIn />;
+      return <LogIn logIn={this.handleLogIn}/>;
     }
   }
 
   render() {
     if (this.state.isAuthorizing) return null;
+    const { user } = this.state;
+    const { handleLogOut } = this;
+    const contextValue = { user, handleLogOut };
     return (
-      <>
-        <Navbar />
-        <PageContainer>
-          { this.displayMatches() }
-        </PageContainer>
-      </>
+      <AppContext.Provider value={contextValue}>
+        <>
+          <Navbar />
+          <PageContainer >
+            { this.displayPage() }
+          </PageContainer>
+        </>
+      </AppContext.Provider>
     );
   }
 }

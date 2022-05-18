@@ -1,5 +1,6 @@
 import React from 'react';
 import { Form, Card, Button } from 'react-bootstrap';
+import AppContext from '../lib/app-context';
 
 export default class LogIn extends React.Component {
   constructor(props) {
@@ -8,12 +9,12 @@ export default class LogIn extends React.Component {
       username: '',
       password: ''
     };
-    this.handleLogIn = this.handleLogIn.bind(this);
+    this.handleSubmit = this.handleSubmit.bind(this);
     this.handleUsername = this.handleUsername.bind(this);
     this.handlePassword = this.handlePassword.bind(this);
   }
 
-  handleLogIn(event) {
+  handleSubmit(event) {
     event.preventDefault();
     fetch('/api/auth/log-in', {
       method: 'POST',
@@ -24,11 +25,7 @@ export default class LogIn extends React.Component {
     })
       .then(response => response.json())
       .then(result => {
-        this.setState({
-          username: '',
-          password: ''
-        });
-        window.localStorage.setItem('jwt', result.token);
+        this.props.logIn(result);
       })
       .catch(error => {
         console.error('Error', error);
@@ -53,7 +50,7 @@ export default class LogIn extends React.Component {
         </div>
         <Card className='m-auto shadow-sm card-width'>
           <Card.Body>
-            <Form className='p-4' onSubmit={this.handleLogIn}>
+            <Form className='p-4' onSubmit={this.handleSubmit}>
               <Form.Group className="mb-4" controlId="formUsername">
                 <Form.Control
                   onChange={this.handleUsername}
@@ -73,7 +70,7 @@ export default class LogIn extends React.Component {
                   placeholder="Password" />
               </Form.Group>
               <Button
-                variant="primary"
+                variant="success"
                 type='submit'
                 size="lg"
                 className='green-bg border-0 rounded-pill d-grid ps-5 pe-5 m-auto'>
@@ -91,3 +88,5 @@ export default class LogIn extends React.Component {
     );
   }
 }
+
+LogIn.contextType = AppContext;

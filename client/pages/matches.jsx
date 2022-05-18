@@ -1,12 +1,22 @@
 import React from 'react';
 import LoadingSpinner from '../components/loading-spinner';
+import { Card, Carousel } from 'react-bootstrap';
 
+const styles = {
+  image: {
+    width: '100%',
+    height: '23rem',
+    objectFit: 'cover'
+  }
+};
 export default class Matches extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
       id: '',
       photos: '',
+      photoOne: '',
+      photoTwo: '',
       name: '',
       age: '',
       breed: '',
@@ -42,6 +52,8 @@ export default class Matches extends React.Component {
         this.setState({
           id: animal.id,
           photos: animal.primary_photo_cropped.full,
+          photoOne: animal.photos[0].large,
+          photoTwo: animal.photos[1].large,
           name: animal.name,
           age: animal.age,
           breed: animal.breeds.primary,
@@ -100,37 +112,50 @@ export default class Matches extends React.Component {
   }
 
   render() {
-    const { photos, name, address, age, breed, gender, size } = this.state;
+    const { photoOne, photoTwo, name, address, breed, gender } = this.state;
 
     if (this.state.isLoading === true) {
       return <LoadingSpinner />;
     } else {
       return (
-        <div className={`animate__animated ${this.state.transition} card card-margin`}>
-          <div className="row g-0">
-            <div className="col-md-4 tan-bg">
-              <img src={photos} className="img-fluid rounded-start" alt={name}/>
-            </div>
-            <div className="col-md-8 tan-bg">
-              <div className="card-body p-4">
-                <h2 className="card-title green-text mb-4 media-font-size d-flex justify-content-center">Meet: {name}</h2>
-                <p className="card-text text-secondary"><span className="fw-bolder">Location:</span> {address.city}, {address.state}</p>
-                <p className="card-text text-secondary"><span className="fw-bolder">Age:</span> {age}</p>
-                <p className="card-text text-secondary"><span className="fw-bolder">Breed:</span> {breed}</p>
-                <p className="card-text text-secondary"><span className="fw-bolder">Size:</span> {size}</p>
-                <p className="card-text text-secondary"><span className="fw-bolder">Gender:</span> {gender}</p>
-              </div>
-              <div className='d-flex flex-wrap justify-content-center button-gap pb-3'>
-                <button className='bg-transparent' onClick={this.handleUnmatch}>
+       <>
+        <Card className={`animate__animated ${this.state.transition} shadow p-3 card-max-width-height m-auto mt-4`}>
+            <Carousel>
+              <Carousel.Item interval={10000}>
+                <img
+                  className="d-block w-100"
+                  src={photoOne}
+                  style={styles.image}
+                  alt={photoOne}
+                />
+              </Carousel.Item>
+              <Carousel.Item interval={10000}>
+                <img
+                  className="d-block w-100"
+                  src={photoTwo}
+                  style={styles.image}
+                  alt={photoTwo}
+                />
+              </Carousel.Item>
+            </Carousel>
+           <Card.Body>
+              <Card.Text>
+                <h2 className="card-title green-text mb-3 media-font-size d-flex justify-content-center">Meet: {name}</h2>
+                <p className="card-text text-secondary"><span className="fw-bolder">Location: </span> {address.city}, {address.state}</p>
+                <p className="card-text text-secondary"><span className="fw-bolder">Breed: </span> {breed}</p>
+                <p className="card-text text-secondary"><span className="fw-bolder">Gender: </span> {gender}</p>
+             </Card.Text>
+              <div className='d-flex flex-wrap justify-content-center button-gap pt-3'>
+                <button className='px-5 py-2 hover rounded-pill blue-bg' onClick={this.handleUnmatch}>
                   <i className='fa-solid fa-circle-xmark'></i>
                 </button>
-                <button className='bg-transparent' onClick={this.handleSave}>
+                <button className='px-5 py-2 hover red-bg rounded-pill' onClick={this.handleSave}>
                   <i className="fa-solid fa-heart"></i>
                 </button>
               </div>
-            </div>
-          </div>
-        </div>
+            </Card.Body>
+         </Card>
+       </>
       );
     }
   }
