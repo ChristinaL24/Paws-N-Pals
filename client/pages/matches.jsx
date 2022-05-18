@@ -115,7 +115,7 @@ export default class Matches extends React.Component {
     } else {
       return (
        <>
-        <Card className={`animate__animated ${this.state.transition} shadow p-3 card-max-width-height m-auto mt-4`}>
+        <Card className={`animate__animated ${this.state.transition} shadow p-3 card-max-width-height m-auto my-3`}>
            <Card.Body>
               <img src={photos} className="pb-3" alt={name} style={styles.image}/>
               <Card.Text>
@@ -124,7 +124,7 @@ export default class Matches extends React.Component {
                 <p className="card-text text-secondary"><span className="fw-bolder">Breed: </span> {breed}</p>
                 <p className="card-text text-secondary"><span className="fw-bolder">Gender: </span> {gender}</p>
              </Card.Text>
-              <div className='d-flex flex-wrap justify-content-center button-gap pt-3'>
+              <div className='d-flex justify-content-center button-gap pt-2'>
                 <button className='px-5 py-2 hover rounded-pill blue-bg' onClick={this.handleUnmatch}>
                   <i className='fa-solid fa-circle-xmark'></i>
                 </button>
