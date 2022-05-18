@@ -29,7 +29,7 @@ export default class LogIn extends React.Component {
           this.props.logIn(result);
           window.location.hash = '#';
         } else {
-          alert('Sorry, we can&#39;t find an account with this login. Please try again.');
+          alert('Sorry, we cannot find an account with this login. Please try again.');
         }
       })
       .catch(error => {
@@ -81,7 +81,7 @@ export default class LogIn extends React.Component {
                 Sign In
               </Button>
             </Form>
-            <div className=''>
+            <div>
               <a href='#sign-up' className='grey-text'>
                 <h5 className='d-flex justify-content-center'>Need an account? Sign up here!</h5>
               </a>
