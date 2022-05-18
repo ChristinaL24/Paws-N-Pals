@@ -27,8 +27,6 @@ Try the application live at [https://paws-n-pals.herokuapp.com/](https://paws-n-
 - User can view details of each pal
 - User can delete pals they are no longer interested in
 - User can view the location of the pal on google maps
-
-# Features in Progress
 - User can sign up for an account
 - User can log in
 - User can log out
