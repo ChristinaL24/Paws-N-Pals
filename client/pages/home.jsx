@@ -52,6 +52,8 @@ export default class Home extends React.Component {
               <option value="Cat">Cats</option>
               <option value="Rabbit">Rabbits</option>
               <option value="Small-Furry">Small & Furry</option>
+              <option value="Bird">Birds</option>
+              <option value="Scales-Fins-Other">Scales, Fins, and Others</option>
               <option value="Barnyard">Barnyard Animals</option>
             </Form.Select>
           </Form.Group>

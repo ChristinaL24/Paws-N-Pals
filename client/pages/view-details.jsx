@@ -6,7 +6,7 @@ import { CardGroup, Card } from 'react-bootstrap';
 const styles = {
   image: {
     width: '100%',
-    height: '500px',
+    height: '600px',
     padding: '1rem',
     objectFit: 'cover'
   }
