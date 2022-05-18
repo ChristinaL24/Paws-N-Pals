@@ -42,17 +42,26 @@ button {
 }
 
 .fa-solid.fa-heart {
-  font-size: 3rem;
+  font-size: 2rem;
   color: #f36c6c;
 }
 
 .fa-solid.fa-circle-xmark {
-  font-size: 3rem;
+  font-size: 2rem;
   color: #b3e3ff;
 }
 
 .fa-circle-arrow-left {
   font-size: 2.5rem;
+}
+
+.fas.fa-heart {
+  font-size: 3.2rem;
+  color: #f36c6c;
+}
+
+.name-font-size {
+  font-size: 1.5rem;
 }
 
 button {

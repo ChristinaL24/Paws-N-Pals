@@ -77,7 +77,7 @@ export default class LogIn extends React.Component {
                 variant="success"
                 type='submit'
                 size="lg"
-                className='green-bg border-0 rounded-pill d-grid ps-5 pe-5 m-auto'>
+                className='green-bg border-0 rounded-pill d-grid px-5 m-auto'>
                 Sign In
               </Button>
             </Form>

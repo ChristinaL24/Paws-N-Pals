@@ -1,4 +1,5 @@
 import React from 'react';
+import { Form } from 'react-bootstrap';
 
 export default class Home extends React.Component {
   constructor(props) {
@@ -30,38 +31,40 @@ export default class Home extends React.Component {
     return (
       <div className="d-flex flex-column align-items-center">
         <h1 className="green-text mt-5">Find Nearby Pals!</h1>
-        <form onSubmit={this.handleSubmit} className="w-75 mt-3">
-          <label htmlFor="search"></label>
-          <input
-            required
-            onChange={this.handleLocation}
-            value={this.state.location}
-            type="search"
-            id="search"
-            name="search"
-            placeholder="Enter City, State, or Zip"
-            className="w-100 rounded-2 outline-none search-height open-sans-text form-styles" />
-          <label htmlFor="pets"></label>
-          <select
-            required
-            onChange={this.handleType}
-            value={this.state.type}
-            name="pets"
-            id="pets"
-            className="w-100 rounded-2 outline-none search-height open-sans-text form-styles mt-4">
-            <option value="pick">Pick the type of pal</option>
-            <option value="Dog">Dogs</option>
-            <option value="Cat">Cats</option>
-            <option value="Rabbit">Rabbits</option>
-            <option value="Small-Furry">Small & Furry</option>
-            <option value="Barnyard">Barnyard Animals</option>
-          </select>
+        <Form onSubmit={this.handleSubmit} className='w-75 mt-3'>
+          <Form.Group className="mb-4" id="locationSearch">
+            <Form.Control
+              required
+              onChange={this.handleLocation}
+              type="search"
+              name="search"
+              value={this.state.location}
+              placeholder="Enter City, State, or Zip" />
+          </Form.Group>
+          <Form.Group id="typeSelect">
+            <Form.Select
+              required
+              aria-label="pets"
+              onChange={this.handleType}
+              value={this.state.type} >
+              <option>Pick the type of pal</option>
+              <option value="Dog">Dogs</option>
+              <option value="Cat">Cats</option>
+              <option value="Rabbit">Rabbits</option>
+              <option value="Small-Furry">Small & Furry</option>
+              <option value="Bird">Birds</option>
+              <option value="Scales-Fins-Other">Scales, Fins, and Others</option>
+              <option value="Barnyard">Barnyard Animals</option>
+            </Form.Select>
+          </Form.Group>
           <div className="d-flex flex-wrap justify-content-right">
             <button
-              className="btn-primary green-bg border-0 rounded-pill button-width mt-4 p-2"
-              type="submit">Next</button>
+              className="btn btn-success green-bg border-0 rounded-pill button-width mt-4 p-2"
+              type="submit">
+                Next
+            </button>
           </div>
-        </form>
+        </Form>
       </div>
     );
   }
