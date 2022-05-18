@@ -25,12 +25,16 @@ export default class LogIn extends React.Component {
     })
       .then(response => response.json())
       .then(result => {
-        this.props.logIn(result);
+        if (result.user && result.token) {
+          this.props.logIn(result);
+          window.location.hash = '#';
+        } else {
+          alert('Sorry, we can&#39;t find an account with this login. Please try again.');
+        }
       })
       .catch(error => {
         console.error('Error', error);
       });
-    window.location.hash = '#';
   }
 
   handleUsername(event) {
