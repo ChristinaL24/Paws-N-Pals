@@ -10,6 +10,7 @@ import SignUp from './pages/sign-up';
 import LogIn from './pages/log-in';
 import decodeToken from './lib/decode-token';
 import AppContext from './lib/app-context';
+import NotFound from './pages/not-found';
 
 export default class App extends React.Component {
   constructor(props) {
@@ -66,6 +67,7 @@ export default class App extends React.Component {
     if (route.path === 'log-in') {
       return <LogIn logIn={this.handleLogIn}/>;
     }
+    return <NotFound />;
   }
 
   render() {

@@ -1,6 +1,6 @@
 import React from 'react';
 import LoadingSpinner from '../components/loading-spinner';
-import { Card, Carousel } from 'react-bootstrap';
+import { Card } from 'react-bootstrap';
 
 const styles = {
   image: {
@@ -15,8 +15,6 @@ export default class Matches extends React.Component {
     this.state = {
       id: '',
       photos: '',
-      photoOne: '',
-      photoTwo: '',
       name: '',
       age: '',
       breed: '',
@@ -52,8 +50,6 @@ export default class Matches extends React.Component {
         this.setState({
           id: animal.id,
           photos: animal.primary_photo_cropped.full,
-          photoOne: animal.photos[0].large,
-          photoTwo: animal.photos[1].large,
           name: animal.name,
           age: animal.age,
           breed: animal.breeds.primary,
@@ -69,7 +65,7 @@ export default class Matches extends React.Component {
         console.error('Error', error);
       });
     if (transition) {
-      setTimeout(() => this.setState({ transition: 'animate__fadeIn' }), 1500);
+      setTimeout(() => this.setState({ transition: 'animate__fadeIn' }), 1800);
     }
   }
 
@@ -112,7 +108,7 @@ export default class Matches extends React.Component {
   }
 
   render() {
-    const { photoOne, photoTwo, name, address, breed, gender } = this.state;
+    const { photos, name, address, breed, gender } = this.state;
 
     if (this.state.isLoading === true) {
       return <LoadingSpinner />;
@@ -120,25 +116,8 @@ export default class Matches extends React.Component {
       return (
        <>
         <Card className={`animate__animated ${this.state.transition} shadow p-3 card-max-width-height m-auto mt-4`}>
-            <Carousel>
-              <Carousel.Item interval={10000}>
-                <img
-                  className="d-block w-100"
-                  src={photoOne}
-                  style={styles.image}
-                  alt={photoOne}
-                />
-              </Carousel.Item>
-              <Carousel.Item interval={10000}>
-                <img
-                  className="d-block w-100"
-                  src={photoTwo}
-                  style={styles.image}
-                  alt={photoTwo}
-                />
-              </Carousel.Item>
-            </Carousel>
            <Card.Body>
+              <img src={photos} className="pb-3" alt={name} style={styles.image}/>
               <Card.Text>
                 <h2 className="card-title green-text mb-3 media-font-size d-flex justify-content-center">Meet: {name}</h2>
                 <p className="card-text text-secondary"><span className="fw-bolder">Location: </span> {address.city}, {address.state}</p>
