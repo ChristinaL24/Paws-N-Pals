@@ -39,11 +39,11 @@ body {
 
 .card-max-width-height {
   max-width: 650px;
-  max-height: 670px;
+  max-height: 680px;
 }
 
 @media (min-width: 768px) {
-  .media-font-size {
+  .name-font-size {
     font-size: 1.8rem;
   }
 
@@ -61,7 +61,7 @@ body {
 }
 
 @media (min-width: 1280px) {
-  .media-font-size {
+  .name-font-size {
     font-size: 2rem;
   }
 
@@ -79,6 +79,6 @@ body {
 
   .fa-solid.fa-heart,
   .fa-solid.fa-circle-xmark {
-    font-size: 3.5rem !important;
+    font-size: 3rem !important;
   }
 }

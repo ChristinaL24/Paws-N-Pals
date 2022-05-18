@@ -115,16 +115,16 @@ export default class Matches extends React.Component {
     } else {
       return (
        <>
-        <Card className={`animate__animated ${this.state.transition} shadow p-3 card-max-width-height m-auto my-3`}>
+        <Card className={`animate__animated ${this.state.transition} shadow p-3 card card-max-width-height m-auto my-3`}>
            <Card.Body>
               <img src={photos} className="pb-3" alt={name} style={styles.image}/>
-              <Card.Text>
-                <h2 className="card-title green-text mb-3 media-font-size d-flex justify-content-center">Meet: {name}</h2>
-                <p className="card-text text-secondary"><span className="fw-bolder">Location: </span> {address.city}, {address.state}</p>
-                <p className="card-text text-secondary"><span className="fw-bolder">Breed: </span> {breed}</p>
-                <p className="card-text text-secondary"><span className="fw-bolder">Gender: </span> {gender}</p>
+              <Card.Text className='d-grid lh-base'>
+                <span className="card-title green-text py-2 text-center name-font-size">Meet: {name}</span>
+                <span className="card-text text-secondary"><span className="fw-bolder">Location: </span> {address.city}, {address.state}</span>
+                <span className="card-text text-secondary"><span className="fw-bolder">Breed: </span> {breed}</span>
+                <span className="card-text text-secondary"><span className="fw-bolder">Gender: </span> {gender}</span>
              </Card.Text>
-              <div className='d-flex justify-content-center button-gap pt-2'>
+              <div className='d-flex justify-content-center button-gap py-2'>
                 <button className='px-5 py-2 hover rounded-pill blue-bg' onClick={this.handleUnmatch}>
                   <i className='fa-solid fa-circle-xmark'></i>
                 </button>

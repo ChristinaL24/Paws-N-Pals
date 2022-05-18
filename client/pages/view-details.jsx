@@ -6,7 +6,8 @@ import { CardGroup, Card } from 'react-bootstrap';
 const styles = {
   image: {
     width: '100%',
-    height: '70%',
+    height: '500px',
+    padding: '1rem',
     objectFit: 'cover'
   }
 };
@@ -85,13 +86,13 @@ export default class ViewDetails extends React.Component {
               </p>
               <GoogleMaps coordinates={this.state.map}/>
               { details.email !== null &&
-                <p className="text-secondary mt-2">
+                <p className="text-secondary mt-3">
                   <span className="fw-bolder">Email: </span>
                   {details.email}
                 </p>
               }
               { details.email === null &&
-                <p className="text-secondary mt-2">
+                <p className="text-secondary mt-3">
                   <span className="fw-bolder">Email: </span>
                   Sorry! This pal&#39;s organization did not provide an email
                 </p>
