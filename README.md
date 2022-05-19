@@ -2,7 +2,7 @@
 
 A full stack web application for prospective pet owners who want to find adoptable pets.
 
-The inspiration behind this application stems from my strong love for all animals. Besides being a dog mom, there was a point in time where I spent four years of my time working on a farm. What made this opportunity special was the fact that I got to bond with the animals I worked with. Paws N Pals is a modern twist on your everyday dating app; rather than match individuals with other people, it matches people with adoptable animals(or "pals") within their area. 
+The inspiration behind this application stems from my strong love for all animals. Besides being a dog mom, there was a point in time where I spent four years of my time working on a farm. What made this opportunity special was the fact that I got to bond with the farm animals I worked with(Cows, chickens, and goats? Oh my). Paws N Pals is a modern twist on your everyday dating app; rather than match individuals with other people, it matches people with adoptable animals(or "pals") within their area. 
 
 # Technologies Used
 - HTML5
@@ -35,8 +35,10 @@ Try the application live at [https://paws-n-pals.herokuapp.com/](https://paws-n-
 - User can get directions to shelter/organization with google maps
 
 # Preview
-![Kapture 2022-04-29 at 13 02 08](https://user-images.githubusercontent.com/97194651/166062154-c2be8159-b142-4b54-b282-7ef03c4c58b8.gif)
-![Kapture 2022-04-29 at 13 05 48](https://user-images.githubusercontent.com/97194651/166062162-76217fd8-6a0c-4d0d-84b8-4050a78830a3.gif)
+![Kapture 2022-05-19 at 13 00 15 2](https://user-images.githubusercontent.com/97194651/169395810-15456376-2570-45a5-b4cf-eb95abc5858a.gif)
+
+![Kapture 2022-05-19 at 13 03 19](https://user-images.githubusercontent.com/97194651/169395792-83516403-1431-4de8-ab8c-686f49fd9ab0.gif)
+
 
 # Development
 
