@@ -14,6 +14,13 @@ export default class LogIn extends React.Component {
     this.handlePassword = this.handlePassword.bind(this);
   }
 
+  componentDidMount() {
+    this.setState({
+      username: 'demoguest',
+      password: 'demoguest'
+    });
+  }
+
   handleSubmit(event) {
     event.preventDefault();
     fetch('/api/auth/log-in', {
@@ -84,6 +91,9 @@ export default class LogIn extends React.Component {
             <div>
               <a href='#sign-up' className='grey-text'>
                 <h5 className='d-flex justify-content-center'>Need an account? Sign up here!</h5>
+              </a>
+              <a onClick={this.props.handleGuest} className='grey-text'>
+                <h5 className='d-flex justify-content-center'>Log in as a guest!</h5>
               </a>
             </div>
           </Card.Body>

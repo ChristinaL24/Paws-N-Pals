@@ -21,7 +21,6 @@ const db = new pg.Pool({
 app.use(staticMiddleware);
 app.use(jsonMiddleware);
 
-// handles sign ups
 app.post('/api/auth/sign-up', (req, res, next) => {
   const { username, password } = req.body;
   if (!username || !password) {
@@ -45,7 +44,6 @@ app.post('/api/auth/sign-up', (req, res, next) => {
     .catch(error => next(error));
 });
 
-// handles sign ins
 app.post('/api/auth/log-in', (req, res, next) => {
   const { username, password } = req.body;
   if (!username || !password) {
@@ -99,10 +97,8 @@ app.get('/api/matches/:location/:type', (req, res, next) => {
     .catch(error => console.error(error));
 });
 
-// everything after this middleware requires a token
 app.use(authorizationMiddleware);
 
-// saves matches into db
 app.post('/api/favorites', (req, res, next) => {
   const { userId } = req.user;
   const { petId, details } = req.body;
@@ -123,7 +119,6 @@ app.post('/api/favorites', (req, res, next) => {
     .catch(error => next(error));
 });
 
-// retrieves saved matches in db
 app.get('/api/saved', (req, res, next) => {
   const { userId } = req.user;
   if (!userId) {
@@ -142,7 +137,6 @@ app.get('/api/saved', (req, res, next) => {
     .catch(err => next(err));
 });
 
-// gets pet details
 app.get('/api/details/:petId', (req, res, next) => {
   const { userId } = req.user;
   const petId = Number(req.params.petId);
