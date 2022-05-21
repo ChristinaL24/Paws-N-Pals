@@ -2,7 +2,7 @@
 
 A full stack web application for prospective pet owners who want to find adoptable pets.
 
-The inspiration behind this application stems from my strong love for all animals. Besides being a dog mom, there was a point in time where I spent four years of my time working on a farm. What made this opportunity special was the fact that I got to bond with the farm animals I worked with(Cows, chickens, and goats? Oh my). Paws N Pals is a modern twist on your everyday dating app; rather than match individuals with other people, it matches people with adoptable animals(or "pals") within their area. 
+The inspiration behind this application stems from my strong love for all animals. Besides being a dog mom, there was a point in time where I spent four years of my time working on a farm. What made this opportunity special was the fact that I got to bond with the farm animals I worked with(cows, chickens, and goats? Oh my). Paws N Pals is a modern twist on your everyday dating app; rather than match individuals with other people, it matches people with adoptable animals(or "pals") within their area. I hope you enjoy this app as much as I truly enjoyed making it!
 
 # Technologies Used
 - HTML5
