@@ -14,6 +14,13 @@ export default class LogIn extends React.Component {
     this.handlePassword = this.handlePassword.bind(this);
   }
 
+  componentDidMount() {
+    this.setState({
+      username: 'demoguest',
+      password: 'demoguest'
+    });
+  }
+
   handleSubmit(event) {
     event.preventDefault();
     fetch('/api/auth/log-in', {
